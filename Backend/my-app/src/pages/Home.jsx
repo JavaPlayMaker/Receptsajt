@@ -49,3 +49,6 @@ const Home = () => {
   );
 };
 export default Home;
+import Header from './components/Header';
+import Footer from './components/Footer';
+
