@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import SearchBar from "./components/SearchBar";
+
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -11,20 +15,35 @@ function App() {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
       })
-      .then((data) => setRecipes(data))
+        .then((data) => {setRecipes(data); setFilteredRecipes(data);})
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
 
+
+const handleSearch = () => {
+  const query = searchQuery.toLowerCase();
+  const results = recipes.filter((r) => r.title.toLowerCase().includes(query));
+  setFilteredRecipes(results);
+};
+
+
 if (loading) return <p> Loading recipes.</p>
 if (error) return <p>Error: {error}</p>
+
+
 
 return (
     <div>
         <h1>Recipes</h1>
-{recipes.length > 0 ? (
+
+<SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} onSearch={handleSearch}/>
+
+
+
+{filteredRecipes.length > 0 ? (
             <ul>
-                {recipes.map((r) => (
+                {filteredRecipes.map((r) => (
                     <li key={r.id}>
                         <h2>{r.title}</h2>
                         {r.imageUrl && <img src={r.imageUrl} alt={r.title} width="150" />}
