@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import RatingStars from "../components/StarRating";
 
 const Recipe = () => {
     const { id } = useParams();
@@ -38,6 +39,7 @@ const Recipe = () => {
                   </li>
                 ))}
               </ul>
+              <RatingStars recipeId={recipe._id}/>
      </>
     ) : (
       <p>No recipe found.</p>
