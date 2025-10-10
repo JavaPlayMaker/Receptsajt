@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Recipe from "./pages/Recipe";
 import Home from "./pages/Home";
 
-function App() {
+
+export function App() {
   return (
     <div>
       <Router>
@@ -14,11 +15,10 @@ function App() {
       </Router>
     </div>
   );
-import React, { useState, useEffect } from "react";
-import SearchBar from "./components/SearchBar";
+}
 
 
-function App() {
+/*function App() {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -84,4 +84,4 @@ return (
 );
 
 }
-export default App;
+export default App;*/
