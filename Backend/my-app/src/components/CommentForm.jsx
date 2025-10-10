@@ -37,7 +37,7 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
       if (onCommentAdded) onCommentAdded(newComment);
       setSubmitted(true);
     } catch  {
-    setErrors({ api: "Comments sending failed." });
+    setErrors({ api: "Failed. Please add more details" });
 } finally {
       setSubmitting(false);
     }
