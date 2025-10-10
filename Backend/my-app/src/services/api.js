@@ -7,7 +7,7 @@ export async function postRating(recipeId, rating) {
     body: JSON.stringify({ rating }),
   });
   if (!res.ok) throw new Error("Failed to submit rating");
-  return res.json();
+  return null; // change the return to null from res.json. respons have no j.son so the app was catching error eve tho the API worked 
 }
 
 export async function getComments(recipeId) {
