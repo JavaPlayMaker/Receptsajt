@@ -71,3 +71,10 @@ button:focus-visible {
   width: 5%;
   height: auto;
 }
+
+.header {
+  width: 100%;
+  min-height: 99px;
+  padding-right: 32px;
+  background: #ced8ff
+}
