@@ -16,7 +16,7 @@ export default function RatingStars({ recipeId }) {
     }
   };
 
-  if (submitted) return <p>Thanks for your rating!</p>;
+  if (submitted) return <p>Tack för ditt betyg!</p>;
 
   return (
     <div>
