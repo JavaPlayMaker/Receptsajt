@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
 import { getRecipe } from "../services/api";
+import "./Recipe.css";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -16,21 +17,28 @@ const Recipe = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p> Loading recipes.</p>;
+  if (loading) return <p> Recept laddar.</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className="recipe-container">
       {recipe ? (
-        <>
-          <h1>{recipe.title}</h1>
+        <div className="recipe-card">
+          <h1 className="recipe-title">{recipe.title}</h1>
+
           {recipe.imageUrl && (
-            <img src={recipe.imageUrl} alt={recipe.title} width="150" />
+            <img
+              src={recipe.imageUrl}
+              alt={recipe.title}
+              className="recipe-image"
+            />
           )}
           <p>{recipe.description}</p>
-          <p>
-            Time: {recipe.timeInMins} mins | Price: {recipe.price} SEK
+          <p className="recipe-meta">
+            ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
+
+          <h2>Ingredients</h2>
           <ul>
             {recipe.ingredients.map((ing, i) => (
               <li key={i}>
@@ -39,9 +47,10 @@ const Recipe = () => {
             ))}
           </ul>
           <RatingStars recipeId={recipe._id} />
-        </>
+
+        </div>
       ) : (
-        <p>No recipe found.</p>
+        <p>Inget recept hittades.</p>
       )}
     </div>
   );

@@ -11,18 +11,11 @@ const handleKeyDown = (enter) => {
 return (
     <input
     type="text"
-    placeholder="Search"
+    placeholder="Sök"
     value={searchQuery}
     onChange={(e) => setSearchQuery (e.target.value)}
     onKeyDown={handleKeyDown}
     
-    style={{
-        padding: "10px",
-        marginBottom: "20px",
-        maxWidth: "500px",
-        fontSize: "20px",
-        border: "2px solid red"
-       }}
     />
   );
 }
