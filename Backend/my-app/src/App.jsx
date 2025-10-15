@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Recipe from "./pages/Recipe";
 import RootLayout from "./layout/RootLayout";
 
-function App() {
+
+export function App() {
   return (
     <Routes>
       <Route path="/" element={<RootLayout />} >
