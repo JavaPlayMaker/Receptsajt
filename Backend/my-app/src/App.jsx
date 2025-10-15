@@ -10,7 +10,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<RootLayout />} >
-        <Route path="/" element={<Home />} /> 
+<Route index element={<Home />} />
         <Route path="/category" element={<Category />} /> 
         <Route path="/recipe/:id" element={<Recipe />} />
       </Route>
