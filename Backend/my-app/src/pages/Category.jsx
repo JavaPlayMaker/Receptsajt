@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TodoList from "../components/TodoList.jsx";
 
-const CategoryPage = () => {
+const Category = () => {
 return (
 <div>
 <h1>Category Page</h1>
@@ -10,5 +10,5 @@ return (
 );
 };
 
-export default CategoryPage;
+export default Category;
 
