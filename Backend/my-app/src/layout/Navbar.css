@@ -1,0 +1,37 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 1rem; */
+  padding: 0.5rem 1rem;
+  color: #1a1a1a;
+  background: #18332f /* #fdf4e5 */;
+  /* padding: 15px 7%; */
+}
+
+.nav-ul {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+  /* height: 3rem; */
+}
+
+ul li {
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.header-logo {
+  width: 160px;
+  cursor: pointer;
+  /* height: 5rem;
+    width:10rem; */
+}
+
+.searchbar {
+  margin-left: 40px;
+  margin-bottom: 0px;
+}

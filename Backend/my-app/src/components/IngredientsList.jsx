@@ -11,7 +11,6 @@ try {
 const response = await fetch ('https://grupp2-vtsor.reky.se/recipes');
 const data = await response.json();
 
-
 const allIngredients = data.flatMap((recipe) =>
 recipe.ingredients.map((ingredient) => ingredient.name)
 );
@@ -26,6 +25,7 @@ console.error("Error fetching ingredients:", error);
 };
 
 fetchIngredients();
+
 }, []);
 
 return (
