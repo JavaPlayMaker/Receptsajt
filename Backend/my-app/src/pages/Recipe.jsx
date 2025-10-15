@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
+import CommentForm from "../components/CommentForm";
+import CommentList from "../components/CommentList";
+import IngredientsList from "../components/IngredientsList";
+import TodoList from "../components/TodoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 
@@ -37,8 +41,8 @@ const Recipe = () => {
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
-
-          <h2>Ingredients</h2>
+<div className="ingredients">
+          <h2>Ingredienser:</h2>
           <ul>
             {recipe.ingredients.map((ing, i) => (
               <li key={i}>
@@ -46,8 +50,11 @@ const Recipe = () => {
               </li>
             ))}
           </ul>
+          </div>
+          <TodoList />
           <RatingStars recipeId={recipe._id} />
-
+          <CommentForm recipeId={recipe._id} />
+          <CommentList recipeId={recipe._id} />
         </div>
       ) : (
         <p>Inget recept hittades.</p>
