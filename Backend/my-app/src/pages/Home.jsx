@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
-
 import "./Home.css";
 import Description from "../components/HomeDesription";
 import { Link } from "react-router-dom"; 
