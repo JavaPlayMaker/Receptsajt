@@ -10,18 +10,13 @@ export default function Description() {
       </p>
 
       <p>
-        Vi levererar sushi inspirerad av gamla japanska recept och tekniker –
-        tillagat av kockar som förstår att sann smak börjar med respekt för
-        ursprunget. Genom vår digitala plattform kan kunder inte bara beställa
-        rätter, utan också följa berättelserna bakom dem: från risfältet i
-        Niigata till fiskmarknaden i Osaka. Vi tror att sushi inte bara är mat –
-        det är en upplevelse.
-      </p>
-
-      <p>
-        Vi vill att varje leverans från Rice N Roll ska kännas som en resa bakåt
-        i tiden – fast levererad till dörren, med smaker som representerar hav,
-        tradition och stillhet.
+        Vi levererar sushirecept inspirerade av gamla japanska tekniker, alltid
+        med respekt för ursprunget. Genom vår digitala plattform kan kunder inte
+        bara laga våra recept, utan också följa berättelserna bakom dem: från
+        risfältet i Niigata till fiskmarknaden i Osaka. Vi tror att sushi inte
+        bara är mat – det är en upplevelse. Vi vill att varje recept från Rice N
+        Roll ska kännas som en resa bakåt i tiden, med smaker som representerar
+        hav, tradition och stillhet.
       </p>
     </div>
   );
