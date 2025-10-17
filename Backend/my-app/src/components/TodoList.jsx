@@ -1,44 +1,39 @@
-import React, {useState } from "react";
+import { useState } from "react";
+import { postRating } from "../services/api";
 
-const TodoList = () => {
-const steps = [
-{ text: "Step 1: Do something", done: false },
-{ text: "Step 2: Did something else", done: false },
-{ text: "Step 3: Done it", done: false },
+function TodoList({ instructions }) {
+  const [checked, setChecked] = useState({});
 
-];
+  const toggleChecked = (index) => {
+    setChecked((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
 
-const [todoList, setTodoList] = useState(steps);
-
-const toggleDone = (index) => {
-const updatedList = [...todoList];
-updatedList[index].done = !updatedList[index].done;
-setTodoList(updatedList);
+  return (
+    <div>
+      <h3>Instructions</h3>
+      <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+        {instructions.map((step, index) => (
+          <li key={index} style={{ marginBottom: "8px" }}>
+            <label style={{ cursor: "pointer" }}>
+              <input
+                type="checkbox"
+                checked={!!checked[index]}
+                onChange={() => toggleChecked(index)}
+                style={{ marginRight: "8px" }}
+              />
+              {`${index + 1}. ${step}`}
+            </label>
+          </li>
+        ))}
+      </ul>
+      <p>
+        {Object.values(checked).filter(Boolean).length} / {instructions.length} steg avklarade!
+      </p>
+    </div>
+  );
 }
 
-return (
-<div>
-<h2>Todo List</h2>
-<ul style={{ listStyleType: "none", padding: 0}}>
-{todoList.map((item, index) => (
-<li key={index} style={{ marginBottom: 8 }}>
-<label>
-<input type="checkbox" checked="{item.done}" onChange={() => toggleDone(index)}
-style={{ marginRight: 8 }}
-/>
-<span
-style={{
-textDecoration: item.done ? "line-through" : "none",
-color: "white"
-}}
->
-{item.text}
-</span>
-</label>
-</li>
-))}
-</ul>
-</div>
-);
-};
 export default TodoList;
