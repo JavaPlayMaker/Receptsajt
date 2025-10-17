@@ -1,0 +1,27 @@
+.comment-list {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: left; /* center the table */
+}
+
+.comment-table {
+  width: 70%;              /* only 70% of container width */
+  border-collapse: collapse;
+}
+
+.comment-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  vertical-align: top;
+}
+
+.comment-meta {
+  width: 25%;
+  font-size: 0.9rem;
+  color: #d6bcbc;
+  
+}
+
+.comment-text {
+  width: 75%;
+}
