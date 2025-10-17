@@ -1,27 +1,41 @@
 .comment-list {
-  margin-top: 1rem;
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.comment-item {
+  border-bottom: 1px solid #ddd;
+  padding: 0.75rem 0;
+}
+
+.comment-header {
   display: flex;
-  justify-content: left; /* center the table */
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom:0.5rem;
 }
 
-.comment-table {
-  width: 70%;              /* only 70% of container width */
-  border-collapse: collapse;
-}
-
-.comment-table td {
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-  vertical-align: top;
-}
-
-.comment-meta {
-  width: 25%;
-  font-size: 0.9rem;
-  color: #d6bcbc;
-  
+.comment-date {
+  color: #777;
+  font-size: 0.5rem;
 }
 
 .comment-text {
-  width: 75%;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.show-more-btn {
+  margin-top: 10px;
+  background-color: #2d8fdd;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.show-more-btn:hover {
+  background-color: #1a73d9;
 }
