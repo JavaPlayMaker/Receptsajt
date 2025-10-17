@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
+import RecipeDifficulty from "../components/RecipeDifficulty";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 
@@ -37,6 +38,8 @@ const Recipe = () => {
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
+
+          <RecipeDifficulty timeInMins={recipe.timeInMins} />
 
           <h2>Ingredients</h2>
           <ul>
