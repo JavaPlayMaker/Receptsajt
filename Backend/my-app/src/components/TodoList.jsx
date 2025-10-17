@@ -13,7 +13,7 @@ function TodoList({ instructions }) {
 
   return (
     <div>
-      <h3>Instructions</h3>
+      <h3>Instruktioner</h3>
       <ul style={{ listStyle: "none", paddingLeft: 0 }}>
         {instructions.map((step, index) => (
           <li key={index} style={{ marginBottom: "8px" }}>
