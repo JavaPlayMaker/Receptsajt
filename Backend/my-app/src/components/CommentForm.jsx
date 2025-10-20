@@ -12,7 +12,7 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = "Namn krävs";
-    if (!form.comment.trim()) errs.comment = "Kommentar krävs";
+    if (!form.comment.trim()) errs.text = "Kommentar krävs";
     return errs;
   };
 
@@ -32,7 +32,7 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
       const newComment = await postComment(
         recipeId,
         form.name,
-        form.comment,
+        form.comment
       );
 
       // Add the date client-side (not stored in DB, but shown to user)
@@ -52,27 +52,22 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
 
   if (submitted) {
     return (
-      <div>
+      <div className="comment-success">
         <p>Tack för din kommentar!</p>
-        {savedDate && (
+        {savedDate && 
           <p>
             <em>Sparad: {savedDate}</em>
           </p>
-        )}
+        }
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="comment-form">
-      <table>
-        <tbody>
-          <tr>
-            <td className="label-cell">
-              <label htmlFor="name">Namn:</label>
-            </td>
-            <td className="input-cell">
-              <input
+      <div className="form-group">
+         <label htmlFor="name">Namn:</label>
+         <input
                 id="name"
                 type="text"
                 value={form.name}
@@ -80,13 +75,10 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
                 disabled={submitting}
               />
               {errors.name && <p className="error">{errors.name}</p>}
-            </td>
-          </tr>
-          <tr>
-            <td className="label-cell">
+            </div>
+
+             <div className="form-group">
               <label htmlFor="comment">Kommentar:</label>
-            </td>
-            <td className="input-cell">
               <textarea
                 id="comment"
                 value={form.comment}
@@ -95,15 +87,13 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
                 disabled={submitting}
               />
               {errors.comment && <p className="error">{errors.comment}</p>}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </div>        
+      
 
       {errors.api && <p className="error">{errors.api}</p>}
 
       <button type="submit" disabled={submitting}>
-        Skicka
+        {submitting ? "Skickar..." : "Skicka"}
       </button>
     </form>
   );

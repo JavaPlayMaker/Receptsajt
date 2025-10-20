@@ -16,13 +16,13 @@ export async function getComments(recipeId) {
   return res.json();
 }
 
-export async function postComment(recipeId, name, text) {
+export async function postComment(recipeId, name, comment) {
   const res = await fetch(`${BASE_URL}/recipes/${recipeId}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, text }),
+    body: JSON.stringify({ name, comment }),
   });
-  if (!res.ok) throw new Error("Failed to submit comment");
+  if (!res.ok) throw new Error("Kunde inte skicka kommentar.");
   return res.json();
 }
 

@@ -11,8 +11,8 @@ export default function RatingStars({ recipeId }) {
       setRating(value);
       await postRating(recipeId, value);
       setSubmitted(true);
-    } catch (err) {
-      setError("Error submitting rating. Please try again.");
+    } catch  {
+      setError("Fel vid inskickning av betyg. Försök igen.");
     }
   };
 
