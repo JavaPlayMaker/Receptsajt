@@ -11,12 +11,12 @@ const Navbar = () => {
       <img src={logo} alt="RICE N ROLL" className="header-logo" Link to="/" />
       </Link>
       <ul className="nav-ul">
-        <li>
-          <Link to="/">Hem</Link>
-        </li>
-        <li>
-          <Link to="Category">Kategorier</Link>
-        </li>{" "}
+          <li className="button-link">
+            <Link to="/">Hem</Link>
+          </li>
+          <li className="button-link">
+            <Link to="Category">Kategorier</Link>
+          </li>{" "}
         {/* TODO skapa undermeny! */}
       </ul>
     </div>
