@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link to="/">Hem</Link>
         </li>
         <li>
-          <Link to="Category"></Link>Kategorier
+          <Link to="Category">Kategorier</Link>
         </li>{" "}
         {/* TODO skapa undermeny! */}
       </ul>
