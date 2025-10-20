@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
 import CommentForm from "../components/CommentForm";
 import CommentList from "../components/CommentList";
-import IngredientsList from "../components/IngredientsList";
-import ToDoList from "../components/TodoList";
+import ToDoList from "../components/ToDoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 
@@ -21,7 +20,7 @@ const Recipe = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p> Recept laddar.</p>;
+  if (loading) return <p>Recept laddar...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -29,7 +28,6 @@ const Recipe = () => {
       {recipe ? (
         <div className="recipe-card">
           <h1 className="recipe-title">{recipe.title}</h1>
-
           {recipe.imageUrl && (
             <img
               src={recipe.imageUrl}
@@ -37,22 +35,28 @@ const Recipe = () => {
               className="recipe-image"
             />
           )}
+             <RatingStars recipeId={recipe._id} /> 
           <p>{recipe.description}</p>
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
-<div className="ingredients">
-          <h2>Ingredienser:</h2>
-          <ul>
-            {recipe.ingredients.map((ing, i) => (
-              <li key={i}>
-                {ing.amount} {ing.unit} {ing.name}
-              </li>
-            ))}
-          </ul>
+
+          {/* EN container för ingredienser + todo-list */}
+          <div className="recipe-details">
+            <div className="ingredients-card">
+              <h2>Ingredienser:</h2>
+              <ul>
+                {recipe.ingredients.map((ing, i) => (
+                  <li key={i}>
+                    {ing.amount} {ing.unit} {ing.name}
+                  </li>
+                ))}
+              </ul>
+       
+            </div>
+            <ToDoList instructions={recipe.instructions} />
           </div>
-         <ToDoList instructions={recipe.instructions} />
-          <RatingStars recipeId={recipe._id} />
+
           <CommentForm recipeId={recipe._id} />
           <CommentList recipeId={recipe._id} />
         </div>

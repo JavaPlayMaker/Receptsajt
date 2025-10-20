@@ -1,24 +1,19 @@
-
+/* --- Recipe layout --- */
 .recipe-container {
   min-height: 100vh;
-  background-color: #0d2d2a; 
+  background-color: #0d2d2a;
   color: white;
   display: flex;
   justify-content: center;
   padding: 40px;
 }
-.ingredients ul {
-  list-style: disc;     
-  padding-left: 20px;   
-  margin: 16px 0;
-}
 
-.ingredients li {
-  display: list-item;   
-  margin-bottom: 6px;   
-  font-size: 20px;
+.recipe-card {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
 }
-
 
 .recipe-title {
   font-size: 2rem;
@@ -27,7 +22,8 @@
 }
 
 .recipe-image {
-  width: 50%;
+  max-width: 500px;
+  max-height: 500px;
   border-radius: 12px;
   margin-bottom: 12px;
 }
@@ -37,9 +33,95 @@
   margin-bottom: 16px;
 }
 
+.recipe-details {
+  display: flex;
+  gap: 100px; /* avstånd mellan korten */
+  margin-top: 24px;
+  flex-wrap: wrap; /* bryts under varandra på små skärmar */
+  justify-content: center;
+}
 
-.recipe-difficulty {
+/* --- Ingredients card --- */
+.ingredients-card {
+  background: #1a3c39;
+  color: white;
+  border: 1px solid #2e5d59;
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
+  height: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ingredients-card h2 {
+  margin-top: 0;
+  font-size: 1, 4rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ingredients-card ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style: disc;
+}
+
+.ingredients-card li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  display: block;
+  text-align: left;
+}
+
+/* --- TodoList card --- */
+.todo-card {
+  background: #1a3c39;
+  color: white;
+  border: 1px solid #2e5d59;
+  border-radius: 12px;
+  padding: 10px;
+  width: 350px;
+  height: 1000px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.todo-card h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.todo-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-card li {
+  background: #264743;
+  padding: 10px;
+  border-radius: 0px;
+  margin-bottom: 8px;
+}
+
+.todo-card li:hover {
+  background: #2f5b56;
+}
+
+.todo-card p {
   font-weight: bold;
-  margin-top: 8px;
-  color: #ffffff;
+  text-align: center;
+  margin-top: 16px;
+  color: #d1d5db;
+}
+
+.search-bar input {
+  width: 155%;       
+  max-width: 600px;  
+  height: 50px;      
+  padding: 0 15px;   
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
 }
