@@ -12,7 +12,7 @@ return (
     <div className="serch-bar">
     <input
     type="text"
-    placeholder="Sök"
+    placeholder="Sök:"
     value={searchQuery}
     onChange={(e) => setSearchQuery (e.target.value)}
     onKeyDown={handleKeyDown}

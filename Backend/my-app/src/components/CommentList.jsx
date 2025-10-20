@@ -43,11 +43,11 @@ export default function CommentList({ recipeId, refreshTrigger }) {
         </tbody>
       </table>
 
-      {visibleCount < comments.length && (
-        <button onClick={handleShowMore} style={{ marginTop: "10px" }}>
-          Visa fler kommentarer +
-        </button>
-      )}
+     {visibleCount < comments.length && (
+  <button className="show-more-btn" onClick={handleShowMore}>
+    Visa fler kommentarer +
+  </button>
+)}
     </div>
   );
 }
