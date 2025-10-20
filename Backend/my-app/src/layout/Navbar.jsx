@@ -11,17 +11,13 @@ const Navbar = () => {
 
       <ul className="nav-ul">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Hem</Link>
         </li>
         <li>
-          <Link to="Category"></Link>Category
+          <Link to="Category"></Link>Kategorier
         </li>{" "}
         {/* TODO skapa undermeny! */}
       </ul>
-
-      <div className="searchbar">
-        <SearchBar />
-      </div>
     </div>
   );
 };
