@@ -9,7 +9,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<RootLayout />} >
-        <Route path="/" element={<Home />} /> {/* TODO Sätta en annan path? */}
+        <Route path="/" element={<Home />} />
         <Route path="/recipe/:id" element={<Recipe />} />
       </Route>
     </Routes>
