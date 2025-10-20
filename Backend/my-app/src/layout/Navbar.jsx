@@ -7,8 +7,9 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img src={logo} alt="RICE N ROLL" className="header-logo" />
-
+      <Link to="/">
+      <img src={logo} alt="RICE N ROLL" className="header-logo" Link to="/" />
+      </Link>
       <ul className="nav-ul">
         <li>
           <Link to="/">Hem</Link>

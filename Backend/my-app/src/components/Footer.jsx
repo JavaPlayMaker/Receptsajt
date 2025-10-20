@@ -1,14 +1,18 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import "./Footer.css";
+import { Link } from "react-router";
 
 function Footer() {
+
   return (
     <footer className="site-footer" aria-label="RISE N ROLL FOOTER">
       <div className="footer-inner">
         <div className="footer-brand">
           <h3>
+            <Link to="/">
             <img src={logo} alt="RICE N ROLL" className="footer-logo" />
+            </Link>
           </h3>
         </div>
 
