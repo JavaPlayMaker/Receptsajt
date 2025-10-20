@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import SearchBar from "../components/SearchBar";
-import logo from "../assets/RICE-N-ROLL.png";
+import logo from "../assets/logo.png";
 import { Link } from "react-router";
 
 const Navbar = () => {

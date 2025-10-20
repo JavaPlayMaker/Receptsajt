@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/RICE-N-ROLL.png";
+import logo from "../assets/logo.png";
 import "./Footer.css";
 
 function Footer() {
