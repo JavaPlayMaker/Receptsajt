@@ -4,7 +4,7 @@ import RatingStars from "../components/StarRating";
 import CommentForm from "../components/CommentForm";
 import CommentList from "../components/CommentList";
 import IngredientsList from "../components/IngredientsList";
-
+import ToDoList from "../components/TodoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 
@@ -51,7 +51,7 @@ const Recipe = () => {
             ))}
           </ul>
           </div>
-         
+         <ToDoList instructions={recipe.instructions} />
           <RatingStars recipeId={recipe._id} />
           <CommentForm recipeId={recipe._id} />
           <CommentList recipeId={recipe._id} />
