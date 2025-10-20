@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { postComment } from "../services/api";
+import "./CommentForm.css"; // optional CSS file for styling
 
 export default function CommentForm({ recipeId, onCommentAdded }) {
-  const [form, setForm] = useState({ name: "", text: ""});
+  const [form, setForm] = useState({ name: "", comment: "" });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [savedDate, setSavedDate] = useState(null);
 
   const validate = () => {
     const errs = {};
-    if (!form.name.trim()) errs.name = "Name required";
-    if (!form.text.trim()) errs.text = "Comment required";
+    if (!form.name.trim()) errs.name = "Namn krävs";
+    if (!form.comment.trim()) errs.text = "Kommentar krävs";
     return errs;
   };
 
@@ -25,70 +27,73 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
     setSubmitting(true);
 
     try {
-      const now= new Date();
-      const localTimeStamp=now.toLocaleDateString();   
+      const now = new Date();
+      const localTimeStamp = now.toLocaleString();
       const newComment = await postComment(
-        recipeId, 
-        form.name, 
-        form.text, 
-        localTimeStamp
+        recipeId,
+        form.name,
+        form.comment
       );
 
+      // Add the date client-side (not stored in DB, but shown to user)
+      newComment.savedDate = localTimeStamp;
+
+
       if (onCommentAdded) onCommentAdded(newComment);
+      setSavedDate(localTimeStamp);
       setSubmitted(true);
-    } catch  {
-    setErrors({ api: "Failed. Please add more details" });
-} finally {
+    } catch (err) {
+      console.error("Kommentarer kunde inte skickas:", err);
+      setErrors({ api: "Kommentarer kunde inte skickas." });
+    } finally {
       setSubmitting(false);
     }
   };
 
-  if (submitted) return <p>Thank you for your comment.</p>;
+  if (submitted) {
+    return (
+      <div className="comment-success">
+        <p>Tack för din kommentar!</p>
+        {savedDate && 
+          <p>
+            <em>Sparad: {savedDate}</em>
+          </p>
+        }
+      </div>
+    );
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            disabled={submitting}
-          />
-        </label>
-        {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
-      </div>
+    <form onSubmit={handleSubmit} className="comment-form">
+      <div className="form-group">
+         <label htmlFor="name">Namn:</label>
+         <input
+                id="name"
+                type="text"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                disabled={submitting}
+              />
+              {errors.name && <p className="error">{errors.name}</p>}
+            </div>
 
-      <div>
-        <label>
-          Comment:
-          <textarea
-            value={form.text}
-            onChange={(e) => setForm({ ...form, text: e.target.value })}
-            disabled={submitting}
-          />
-        </label>
-        {errors.text && <p style={{ color: "red" }}>{errors.text}</p>}
-      </div>
+             <div className="form-group">
+              <label htmlFor="comment">Kommentar:</label>
+              <textarea
+                id="comment"
+                value={form.comment}
+                onChange={(e) => 
+                  setForm({ ...form, comment: e.target.value })}
+                disabled={submitting}
+              />
+              {errors.comment && <p className="error">{errors.comment}</p>}
+            </div>        
+      
 
-      <div>
-        <label>
-          Datum:
-          <input
-            type="date"
-            value={form.date}
-            onChange={(e) => setForm({ ...form, date: e.target.value })}
-            disabled={submitting}
-          />
-        </label>
-        {errors.date && <p style={{ color: "red" }}>{errors.date}</p>}
-      </div>
-
-      {errors.api && <p style={{ color: "red" }}>{errors.api}</p>}
+      {errors.api && <p className="error">{errors.api}</p>}
 
       <button type="submit" disabled={submitting}>
-        Send
+        {submitting ? "Skickar..." : "Skicka"}
       </button>
     </form>
   );

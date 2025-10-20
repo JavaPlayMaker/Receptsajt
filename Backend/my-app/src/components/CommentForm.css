@@ -1,0 +1,35 @@
+.comment-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.label-cell {
+  width: 120px;
+  text-align: right;
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+.input-cell {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  box-sizing: border-box;
+}
+
+.comment-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.error {
+  color: red;
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
