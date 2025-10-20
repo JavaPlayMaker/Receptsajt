@@ -55,7 +55,7 @@
 
 .ingredients-card h2 {
   margin-top: 0;
-  font-size: 1, 4rem;
+  font-size: 1.4rem;
   margin-bottom: 12px;
   text-align: center;
 }
@@ -101,7 +101,6 @@
 .todo-card li {
   background: #264743;
   padding: 10px;
-  border-radius: 0px;
   margin-bottom: 8px;
 }
 
@@ -116,16 +115,7 @@
   color: #d1d5db;
 }
 
-.search-bar input {
-  width: 155%;       
-  max-width: 600px;  
-  height: 50px;      
-  padding: 0 15px;   
-  border-radius: 12px;
-  border: none;
-  font-size: 1rem;
-  background-color:  #EA0029;
-}
+
 
 .search-bar input::placeholder {
   color: #1a3c39;
