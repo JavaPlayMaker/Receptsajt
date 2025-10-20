@@ -7,6 +7,7 @@ import ToDoList from "../components/ToDoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 
+
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState([]);
@@ -35,13 +36,13 @@ const Recipe = () => {
               className="recipe-image"
             />
           )}
-             <RatingStars recipeId={recipe._id} /> 
+          <RatingStars recipeId={recipe._id} />
           <p>{recipe.description}</p>
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
 
-          {/* EN container för ingredienser + todo-list */}
+          {/* one container for ingrediens + todo-list */}
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
@@ -52,7 +53,6 @@ const Recipe = () => {
                   </li>
                 ))}
               </ul>
-       
             </div>
             <ToDoList instructions={recipe.instructions} />
           </div>

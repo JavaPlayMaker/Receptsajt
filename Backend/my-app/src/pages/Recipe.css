@@ -35,9 +35,9 @@
 
 .recipe-details {
   display: flex;
-  gap: 100px; /* avstånd mellan korten */
+  gap: 100px; /* gap between the cards */
   margin-top: 24px;
-  flex-wrap: wrap; /* bryts under varandra på små skärmar */
+  flex-wrap: wrap; /* makes a list with the recipes in a list on small screens */
   justify-content: center;
 }
 
