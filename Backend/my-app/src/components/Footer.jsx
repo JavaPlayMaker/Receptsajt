@@ -4,13 +4,19 @@ import "./Footer.css";
 import { Link } from "react-router";
 
 function Footer() {
+  const onLogoClick = (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behaviour: 'smooth'});
+    }
+  };
 
   return (
     <footer className="site-footer" aria-label="RISE N ROLL FOOTER">
       <div className="footer-inner">
         <div className="footer-brand">
           <h3>
-            <Link to="/">
+            <Link to="/" onClick={onLogoClick} aria-label="Gå till startsidan">
             <img src={logo} alt="RICE N ROLL" className="footer-logo" />
             </Link>
           </h3>
