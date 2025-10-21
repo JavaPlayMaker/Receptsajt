@@ -16,7 +16,7 @@ export default function RatingStars({ recipeId }) {
     }
   };
 
-  if (submitted) return <p>Tack för ditt betyg!</p>;
+ // if (submitted) return <p>Tack för ditt betyg!</p>;
 
   return (
     <div>
@@ -24,16 +24,24 @@ export default function RatingStars({ recipeId }) {
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
-          onClick={() => handleClick(star)}
+          onClick={!submitted ? () => handleClick(star) : undefined}
           style={{
-            cursor: "pointer",
-            fontSize: "1.5rem",
-            color: star <= rating ? "gold" : "gray",
+            cursor: submitted ? "default" : "pointer",
+            fontSize: "2rem",
+            color: star <= rating ? "gold" : "#ccc",
+            transition: "color 0.3s",
+            marginRight: "4px",
           }}
         >
           ★
         </span>
       ))}
+
+      {submitted && (
+        <p style={{ marginTop: "0.5rem", color: "green" }}>
+          Tack för ditt betyg! ({rating} stjärnor)
+        </p>
+      )}
     </div>
   );
 }

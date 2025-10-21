@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { postComment } from "../services/api";
-import "./CommentForm.css"; // optional CSS file for styling
+import "./CommentForm.css"; 
 
-export default function CommentForm({ recipeId, onCommentAdded }) {
+export default function CommentForm({ recipeId, onCommentAdded, resetTrigger }) {
   const [form, setForm] = useState({ name: "", comment: "" });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [savedDate, setSavedDate] = useState(null);
 
+
+  // 🧹 Reset form when parent triggers reset
+  useEffect(() => {
+    setForm({ name: "", comment: "" });
+    setSubmitted(false);
+    setSavedDate(null);
+  }, [resetTrigger]);
+
+  
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) errs.name = "Namn krävs";
-    if (!form.comment.trim()) errs.text = "Kommentar krävs";
+    if (!form.comment.trim()) errs.comment = "Kommentar krävs";
     return errs;
   };
 
@@ -63,6 +72,8 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
     );
   }
 
+  
+
   return (
     <form onSubmit={handleSubmit} className="comment-form">
       <div className="form-group">
@@ -98,4 +109,3 @@ export default function CommentForm({ recipeId, onCommentAdded }) {
     </form>
   );
 }
-
