@@ -7,15 +7,18 @@
   justify-content: center;
   padding: 40px;
 }
-
-.recipe-card {
-  max-width: 100%px;
-  width: 100%;
-  background-color: #123632; 
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+.ingredients ul {
+  list-style: disc;     
+  padding-left: 20px;   
+  margin: 16px 0;
 }
+
+.ingredients li {
+  display: list-item;   
+  margin-bottom: 6px;   
+  font-size: 20px;
+}
+
 
 .recipe-title {
   font-size: 2rem;
@@ -35,3 +38,8 @@
 }
 
 
+.recipe-difficulty {
+  font-weight: bold;
+  margin-top: 8px;
+  color: #ffffff;
+}

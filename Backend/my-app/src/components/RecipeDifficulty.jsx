@@ -1,23 +1,21 @@
 import React from "react";
 
-const RecipeDifficulty = ({timeInMins}) => {
-    let difficulty;
+const RecipeDifficulty = ({ timeInMins }) => {
+  let difficulty;
 
-    if (timeInMins <=30) {
-        difficulty = 'Easy Peasy';
-    } else if (timeInMins <= 60)  {
-        difficulty = 'It´s Mid';
-        } else {
-            difficulty = '"It´s RAW!" Qouted by Gordon Ramsey (Hard)'
-        }
+  if (timeInMins <= 20) {
+    difficulty = "Lätt";
+  } else if (timeInMins <= 45) {
+    difficulty = "Medel";
+  } else {
+    difficulty = "Svår";
+  }
 
-
-        return (
-<p>
-
-<strong> Difficulty: </strong> {difficulty}
-</p>
-);
+  return (
+    <p className="recipe-difficulty">
+      <strong>Svårighetsgrad:</strong> {difficulty}
+    </p>
+  );
 };
 
-export default RecipeDifficulty
+export default RecipeDifficulty;

@@ -1,22 +1,43 @@
-// src/components/IngredientsList.jsx
-import React from "react";
+import React, {use, useEffect, useState} from "react";
 
-export default function IngredientsList({ ingredients = [] }) {
-  if (!ingredients || ingredients.length === 0) {
-    return <p>Inga ingredienser tillgängliga.</p>;
-  }
 
-  return (
-    <div className="ingredients-list">
-      <h2>Ingredienser</h2>
-      <ul>
-        {ingredients.map((ing, i) => (
-          <li key={i}>
-            {ing.amount} {ing.unit} {ing.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const IngredientsList = () => {
+const [ingredientsList, setIngredientsList] = useState([]);
+
+
+useEffect(() => {
+const fetchIngredientList = async () => {
+try {
+const response = await fetch ('https://grupp2-vtsor.reky.se/recipes');
+const data = await response.json();
+
+const allIngredients = data.flatMap((recipe) =>
+recipe.ingredients.map((ingredient) => ingredient.name)
+);
+
+const uniqueIngredients = [...new Set(allIngredients)];
+setIngredientsList(uniqueIngredients);
+
+} catch (error) {
+console.error("Error fetching ingredients:", error);
+
 }
+};
 
+fetchIngredients();
+
+}, []);
+
+return (
+<div>
+<h2>Ingredients List</h2>
+<ul>
+{ingredients.map((item, index) => (
+<li key={index}>{item}</li>
+))}
+</ul>
+</div>
+);
+};
+
+export default IngredientsList;

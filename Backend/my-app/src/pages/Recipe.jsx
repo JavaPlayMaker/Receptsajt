@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
 
 import IngredientsList from "../components/IngredientsList";
+
 import CommentsSection from "../components/CommentsSection";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
@@ -50,7 +51,7 @@ const Recipe = () => {
             ))}
           </ul>
           </div>
-         
+         <ToDoList instructions={recipe.instructions} />
           <RatingStars recipeId={recipe._id} />
           <CommentsSection recipeId={recipe._id} />
         </div>
