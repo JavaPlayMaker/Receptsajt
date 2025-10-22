@@ -2,17 +2,20 @@ import { Outlet } from "react-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+/* under uppbyggnad med Categories */
 
 function RootLayout() {
-    return (
-        <>
-        <Header/>
+  const categories = ["huvudrätt", "Sushi", "Stark"];
 
-        <Outlet />
-        
-        <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header categories={categories} />
+
+      <Outlet />
+
+      <Footer />
+    </>
+  );
 }
 
 export default RootLayout;

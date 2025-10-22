@@ -26,8 +26,21 @@ export async function postComment(recipeId, name, text) {
   return res.json();
 }
 
-export async function getRecipe(recipeId) { // added my fetch here, do we want all the fetch in api.js? 
+export async function getRecipe(recipeId) {
+  // added my fetch here, do we want all the fetch in api.js?
   const res = await fetch(`${BASE_URL}/recipes/${recipeId}`);
   if (!res.ok) throw new Error("Network response was not ok");
+  return res.json();
+}
+
+export async function getAllCategories() {
+  const res = await fetch(`${BASE_URL}/categories`);
+  if (!res.ok) throw new Error("Failed to fetch categories");
+  return res.json();
+}
+
+export async function getRecipesByCategory(categoryName) {
+  const res = await fetch(`${BASE_URL}/categories/${encodeURIComponent(categoryName)}/recipes`);
+  if (!res.ok) throw new Error('Failed to fetch recipes for category');
   return res.json();
 }
