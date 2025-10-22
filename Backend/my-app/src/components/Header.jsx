@@ -2,13 +2,12 @@ import React from 'react';
 import '../index.css'
 import Navbar from '../layout/Navbar';
 
-const Header = ({ categories }) => {
-
+const Header = () => {
   return (
-      <header className="header">
-            <Navbar categories={categories} />
-      </header>
-    );
-  };
+    <header className="header">
+      <Navbar />
+    </header>
+  );
+};
 
 export default Header;
