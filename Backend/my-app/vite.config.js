@@ -7,4 +7,9 @@ export default defineConfig({
     react(),
     tsconfigPaths()
   ],
+   test: {
+    globals: true,           
+    environment: "happy-dom",     
+    setupFiles: "./src/test/setupTests.js"
+  },
 });
