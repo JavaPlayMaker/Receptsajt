@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-
-import IngredientsList from "../components/IngredientsList";
-
 import CommentsSection from "../components/CommentsSection";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
