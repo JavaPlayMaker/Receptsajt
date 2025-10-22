@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { postComment } from "../services/api";
-import "./Interactive/CommentForm.css"; // optional CSS file for styling
+import "./others/CommentForm.css"; 
 
 export default function CommentForm({ recipeId, onCommentAdded }) {
   const [form, setForm] = useState({ name: "", comment: "" });

@@ -28,6 +28,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -54,6 +57,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.header-img {
+  width: 5%;
+  height: auto;
+}
+
+.header {
+  width: 100%;
+  min-height: 99px;
+  padding-right: 32px;
+  background: #ced8ff;
+}
+
+/* Light mode */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,14 +83,70 @@ button:focus-visible {
   }
 }
 
-.header-img {
-  width: 5%;
-  height: auto;
+/* ---------------- RESPONSIVE DESIGN ---------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .header-img {
+    width: 7%;
+  }
+
+  .header {
+    padding-right: 20px;
+    min-height: 80px;
+  }
+
+  button {
+    font-size: 0.95em;
+    padding: 0.5em 1em;
+  }
 }
 
-.header {
-  width: 100%;
-  min-height: 99px;
-  padding-right: 32px;
-  background: #ced8ff
+/* Phones) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .header-img {
+    width: 12%;
+  }
+
+  .header {
+    padding-right: 16px;
+    min-height: 70px;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+  }
+
+  body {
+    padding: 0.5rem;
+  }
 }
+/* Small Phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .header-img {
+    width: 15%;
+  }
+
+  .header {
+    padding-right: 12px;
+    min-height: 60px;
+  }
+
+  button {
+    font-size: 0.85em;
+    padding: 0.3em 0.6em;
+  }
+} 

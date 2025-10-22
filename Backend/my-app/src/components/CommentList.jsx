@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../services/api";
-import "./Interactive/CommentList.css"; // optional CSS file for styling
+import "./others/CommentList.css"; // optional CSS file for styling
 
 export default function CommentList({ recipeId, refreshTrigger }) {
   const [comments, setComments] = useState([]);

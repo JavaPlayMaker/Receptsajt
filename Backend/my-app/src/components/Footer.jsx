@@ -3,7 +3,7 @@ import logo from "../assets/RICE-N-ROLL.png";
 import facebook from "../assets/facebook.png";
 import instagram from "../assets/instagram.png";
 import pinterest from "../assets/pinterest.png";
-import "./Interactive/Footer.css";
+import "./others/Footer.css";
 
 function Footer() {
   return (

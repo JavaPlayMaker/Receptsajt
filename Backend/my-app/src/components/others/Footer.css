@@ -61,8 +61,7 @@ flex: 1 1 100%;}
 
 .social-list a[href*="instagram"]:hover,
 .social-list a[href*="instagram"]:focus {
-  background: #1877f2
-  );
+  background: #1877f2;
 }
 
 .social-list a[href*="facebook"]:hover,
