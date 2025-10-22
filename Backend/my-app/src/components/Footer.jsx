@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "../assets/RICE-N-ROLL.png";
-import "./Footer.css";
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
+import pinterest from "../assets/pinterest.png";
+import "./others/Footer.css";
 
 function Footer() {
   return (
@@ -25,18 +28,19 @@ function Footer() {
           <p className="muted">Följ oss</p>
           <ul className="social-list">
             <li>
-              <a href="#" aria-label="Instagram">
-                Instagram
+              <a href="https://www.facebook.com" aria-label="Facebook">
+                  <img src={facebook} alt="Facebook" />
+
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Facebook">
-                Facebook
+              <a href="https://www.instagram.com" aria-label="Instagram">
+                  <img src={instagram} alt="Instagram" />
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Pinterest">
-                Pinterest
+              <a href="https://www.pinterest.com" aria-label="Pinterest">
+                  <img src={pinterest} alt="Pinterest"/>
               </a>
             </li>
           </ul>
