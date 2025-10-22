@@ -1,6 +1,7 @@
 import React, {use, useEffect, useState} from "react";
 
 
+
 const IngredientsList = () => {
 const [ingredientsList, setIngredientsList] = useState([]);
 
