@@ -16,7 +16,6 @@ const Navbar = () => {
     getAllCategories()
       .then((data) => {
         if (!mounted) return;
-        // assume API returns array of category names
         setCategories(Array.isArray(data) ? data.sort() : []);
       })
       .catch(() => setCategories([]))
