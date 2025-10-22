@@ -30,6 +30,13 @@ body {
   min-height: 100vh;
 }
 
+/* Ensure main content can flow under a sticky header: use column layout */
+main,
+.page-content,
+.home-container {
+  width: 100%;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -67,14 +74,17 @@ button:focus-visible {
   }
 }
 
-.header-img {
-  width: 5%;
-  height: auto;
-}
-
 .header {
   width: 100%;
   min-height: 99px;
   padding-right: 32px;
-  background: #ced8ff
+  background: #ced8ff;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }

@@ -1,5 +1,7 @@
 import React from 'react';
-import '../index.css'
+// import '../index.css'
+// import './header.css'
+import '../layout/navbar.css'
 import Navbar from '../layout/Navbar';
 
 const Header = () => {

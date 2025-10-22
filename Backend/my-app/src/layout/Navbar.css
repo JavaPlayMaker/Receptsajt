@@ -42,7 +42,7 @@ ul li {
 .button-link a,
 .dropdown-btn{
   background-color: white;
-  color:  #e4002b;
+  color:  #e6002b;
   text-decoration: none;
   font-weight: bold;
   border: none;
@@ -106,8 +106,16 @@ ul li {
 
 
 .header-logo {
-  height: 50px;
-  /* width: 160px; */
+  /* height: 100px; */
+  width: 140px;
   /* height: 5rem;
     width:10rem; */
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
