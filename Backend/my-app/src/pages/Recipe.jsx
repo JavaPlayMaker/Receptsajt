@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import CommentForm from "../components/CommentForm";
-import CommentList from "../components/CommentList";
 import ToDoList from "../components/ToDoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
+import RecipeDifficulty from "../components/RecipeDifficulty";
+import CommentsSection from "../components/CommentSection";
+
 
 
 const Recipe = () => {
@@ -36,7 +37,8 @@ const Recipe = () => {
               className="recipe-image"
             />
           )}
-          <RatingStars recipeId={recipe._id} />
+          <RatingStars recipeId={recipe._id} /> 
+          <RecipeDifficulty timeInMins={recipe.timeInMins}/>
           <p>{recipe.description}</p>
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
@@ -56,9 +58,7 @@ const Recipe = () => {
             </div>
             <ToDoList instructions={recipe.instructions} />
           </div>
-
-          <CommentForm recipeId={recipe._id} />
-          <CommentList recipeId={recipe._id} />
+          <CommentsSection recipeId={recipe._id}/>
         </div>
       ) : (
         <p>Inget recept hittades.</p>

@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import "./Home.css";
 import Description from "../components/HomeDesription";
 import { Link } from "react-router-dom";
+import RecipeDifficulty from "../components/RecipeDifficulty";
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -76,6 +77,7 @@ const Home = () => {
                   <h3>{r.title}</h3>
                   {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
                   <p>{r.description}</p>
+                  <RecipeDifficulty timeInMins={r.timeInMins} />
                   <p>
                     ⏱ {r.timeInMins} min | 💰 {r.price} SEK
                   </p>
@@ -98,6 +100,7 @@ const Home = () => {
                   <h3>{r.title}</h3>
                   {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
                   <p>{r.description}</p>
+                  <RecipeDifficulty timeInMins={r.timeInMins} />
                   <p>
                     ⏱ {r.timeInMins} min | 💰 {r.price} SEK
                   </p>

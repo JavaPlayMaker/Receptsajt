@@ -10,8 +10,18 @@ export default function CommentList({ recipeId, refreshTrigger }) {
     async function loadComments() {
       try {
         const data = await getComments(recipeId);
-        console.log("Loaded comments:", data);
-        setComments(data);
+       
+       // Reverse comments so newest comes first(No good but..)
+        const sorted = data.reverse();
+
+       /* // Sort comments so newest comes first
+          //But DB may have no createdAt timestamp
+        const sorted = data.sort(
+          (a, b) => new Date(b.createdAt|| b.savedDate) - new Date(a.createAt)
+        );*/
+
+        console.log("Loaded comments:", sorted);
+        setComments(sorted);
       } catch (err) {
         console.error("Kunde inte ladda kommentarer", err);
       }
@@ -34,7 +44,7 @@ export default function CommentList({ recipeId, refreshTrigger }) {
       {visibleComments.map((c) => (
         <div key={c._id} className="comment-item">
           <div className="comment-header">
-            <strong>{c.name}</strong>
+            <strong>{c.name} </strong>
             <small className="comment-date">
               {c.createdAt
                 ? new Date(c.createdAt).toLocaleString()
