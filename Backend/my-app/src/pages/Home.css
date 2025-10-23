@@ -1,7 +1,10 @@
-/* ===== Base Styles ===== */
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
   width: 100%;
   overflow-x: hidden;
   background-color: #0d2d2a;
@@ -24,7 +27,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* ===== Description ===== */
 .description p {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -35,7 +37,6 @@ body {
   margin-right: auto;
 }
 
-/* ===== Search Bar ===== */
 .search-bar {
   margin-bottom: 40px;
   width: 90%;
@@ -56,7 +57,6 @@ body {
   background-color: white;
 }
 
-/* ===== Recipe Lists ===== */
 .favorites-list,
 .other-list {
   display: flex;
@@ -110,7 +110,6 @@ body {
   text-align: center;
 }
 
-/* ===== Recipe Link ===== */
 .recipe-link {
   display: flex;
   flex-direction: column;
@@ -125,7 +124,6 @@ body {
   color: white;
 }
 
-/* ===== Sections ===== */
 .favorites-section {
   margin-bottom: 30px;
   text-align: center;
@@ -157,7 +155,6 @@ body {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
-  /* Stack recipe cards vertically */
   .favorites-list,
   .other-list {
     flex-direction: column;
@@ -170,7 +167,6 @@ body {
     max-width: 400px;
   }
 
-  /* Adjust headings and text */
   .home-container h1 {
     font-size: 2rem;
   }
@@ -180,7 +176,6 @@ body {
     font-size: 1rem;
   }
 
-  /* Search bar mobile layout */
   .search-bar {
     flex-direction: column;
     align-items: center;
@@ -189,8 +184,6 @@ body {
   .search-bar input {
     width: 90%;
   }
-
-  /* Make grid in favorites section single column */
   .favorites-section ul {
     grid-template-columns: 1fr;
   }
