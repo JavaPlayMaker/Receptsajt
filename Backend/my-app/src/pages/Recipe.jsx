@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import ToDoList from "../components/ToDoList";
+import TodoList from "../components/ToDoList";  
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";

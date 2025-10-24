@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TodoList from "../components/TodoList.jsx";
+import ToDoList from "../components/ToDoList.jsx";
 
 const Category = () => {
 return (
