@@ -11,9 +11,13 @@
 }
 
 .nav-ul {
-  flex: 1;
   list-style: none;
+  display: flex;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  /* flex: 1; */
   /* height: 3rem; */
 }
 
@@ -21,17 +25,97 @@ ul li {
   display: inline-block;
   margin: 10px 20px;
   font-size: 25px;
-  cursor: pointer;
 }
 
-.header-logo {
-  width: 160px;
+.button-link {
+  position: relative;
+  background-color: #E4002B;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+  font-weight: 700;
+}
+
+.button-link a,
+.dropdown-btn{
+  background-color: white;
+  color:  #e6002b;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-link a:hover,
+.dropdown-btn:hover {
+  background-color: #f7f7f7;
+}
+
+/* Dropdown styles */
+.dropdown { position: relative; }
+.dropdown-btn { background: transparent; border: none; font-size: 1rem; cursor: pointer; }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  min-width: 160px;
+  z-index: 50;
+}
+.dropdown-item { list-style: none; }
+.dropdown-item a { display: block; padding: 0.5rem 1rem; color: inherit; text-decoration: none; }
+.dropdown-item a:hover { background: #f2f2f2; }
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+}
+
+.dropdown-item a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.dropdown-item a:hover {
+  background-color: #f2f2f2;
+}
+
+
+.header-logo {
+  /* height: 100px; */
+  width: 140px;
   /* height: 5rem;
     width:10rem; */
 }
 
-.searchbar {
-  margin-left: 40px;
-  margin-bottom: 0px;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }

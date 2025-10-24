@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import ToDoList from "../components/ToDoList";
+import ToDoList from "../components/ToDoList";  
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
@@ -44,7 +44,7 @@ const Recipe = () => {
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
 
-          {/* one container for ingrediens + todo-list */}
+     
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
