@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRecipesByCategory } from "../services/api";
-// import "../pages/Home.css";
 import "./CategoryDropDown.css"
 
 export default function CategoryDropDown() {
@@ -27,10 +26,10 @@ export default function CategoryDropDown() {
     <div className="category-page">
       <h1>Kategori: {category}</h1>
       {recipes.length > 0 ? (
-        <ul className="recipe-list">
+        <ul className="category-list">
           {recipes.map((r) => (
-            <li key={r._id} className="recipe-item">
-              <Link to={`/recipe/${r._id}`} className="recipe-link">
+            <li key={r._id} className="category-item">
+              <Link to={`/recipe/${r._id}`} className="category-link">
                 <h2>{r.title}</h2>
                 {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
                 <p>{r.description}</p>
