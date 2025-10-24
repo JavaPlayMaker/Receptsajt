@@ -20,7 +20,10 @@ const Navbar = () => {
         <li>
           <Link to="/category">Kategorier</Link>
         </li>{" "}
-        {/* TODO skapa undermeny! */}
+        <li>  
+          <Link to="/about">Om Oss</Link>
+        </li>
+      
       </ul>
     </div>
   );
