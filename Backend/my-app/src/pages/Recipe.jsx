@@ -44,7 +44,6 @@ const Recipe = () => {
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
 
-          {/* one container for ingrediens + todo-list */}
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
