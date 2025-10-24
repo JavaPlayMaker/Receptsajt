@@ -5,7 +5,7 @@ const Category = () => {
 return (
 <div>
 <h1>Category Page</h1>
-<TodoList />
+<ToDoList />
 </div>
 );
 };
