@@ -1,7 +1,7 @@
-
+/* --- Recipe layout --- */
 .recipe-container {
   min-height: 100vh;
-  background-color: #0d2d2a; 
+  background-color: #0d2d2a;
   color: white;
   display: flex;
   justify-content: center;
@@ -9,12 +9,10 @@
 }
 
 .recipe-card {
-  max-width: 100%px;
+  max-width: 900px;
   width: 100%;
-  background-color: #123632; 
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .recipe-title {
@@ -24,7 +22,8 @@
 }
 
 .recipe-image {
-  width: 50%;
+  max-width: 500px;
+  max-height: 500px;
   border-radius: 12px;
   margin-bottom: 12px;
 }
@@ -34,4 +33,92 @@
   margin-bottom: 16px;
 }
 
+.recipe-details {
+  display: flex;
+  gap: 100px; /* gap between the cards */
+  margin-top: 24px;
+  flex-wrap: wrap; /* makes a list with the recipes in a list on small screens */
+  justify-content: center;
+}
+
+/* --- Ingredients card --- */
+.ingredients-card {
+  background: #1a3c39;
+  color: white;
+  border: 1px solid #2e5d59;
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
+  height: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ingredients-card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.ingredients-card ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style: disc;
+}
+
+.ingredients-card li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  display: block;
+  text-align: left;
+}
+
+/* --- TodoList card --- */
+.todo-card {
+  background: #1a3c39;
+  color: white;
+  border: 1px solid #2e5d59;
+  border-radius: 12px;
+  padding: 10px;
+  width: 350px;
+  height: 1000px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.todo-card h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.todo-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-card li {
+  background: #264743;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.todo-card li:hover {
+  background: #2f5b56;
+}
+
+.todo-card p {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 16px;
+  color: #d1d5db;
+}
+
+
+
+.search-bar input::placeholder {
+  color: #1a3c39;
+  opacity: 1; 
+}
 

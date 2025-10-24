@@ -7,22 +7,21 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img src={logo} alt="RICE N ROLL" className="header-logo" />
-
+      <Link to="/">
+        <img src={logo} alt="RICE N ROLL" className="header-logo" />
+      </Link>
       <ul className="nav-ul">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Hemsidan</Link>
         </li>
-        <li>Recipe</li>
         <li>
-          <Link to="Category"></Link>Category
+          <Link to="/recipe">Recept</Link>
+        </li>
+        <li>
+          <Link to="/category">Kategorier</Link>
         </li>{" "}
         {/* TODO skapa undermeny! */}
       </ul>
-
-      <div className="searchbar">
-        <SearchBar />
-      </div>
     </div>
   );
 };
