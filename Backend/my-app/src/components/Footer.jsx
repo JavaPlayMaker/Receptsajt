@@ -1,17 +1,27 @@
 import React from "react";
-import logo from "../assets/RICE-N-ROLL.png";
 import facebook from "../assets/facebook.png";
 import instagram from "../assets/instagram.png";
 import pinterest from "../assets/pinterest.png";
 import "./others/Footer.css";
+import logo from "../assets/logo.png";
+import { Link } from "react-router";
 
 function Footer() {
+  const onLogoClick = (e) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behaviour: 'smooth'});
+    }
+  };
+
   return (
     <footer className="site-footer" aria-label="RISE N ROLL FOOTER">
       <div className="footer-inner">
         <div className="footer-brand">
           <h3>
+            <Link to="/" onClick={onLogoClick} aria-label="Gå till startsidan">
             <img src={logo} alt="RICE N ROLL" className="footer-logo" />
+            </Link>
           </h3>
         </div>
 
