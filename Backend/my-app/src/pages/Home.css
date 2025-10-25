@@ -1,5 +1,4 @@
-
-html,
+/* ===== Base Styles ===== */
 body {
   margin: 0;
   padding: 0;
@@ -9,7 +8,7 @@ body {
   font-family: Arial, sans-serif;
   color: white;
 }
-
+ 
 .home-container {
   min-height: 100vh;
   width: 100%;
@@ -19,33 +18,36 @@ body {
   padding: 40px 0;
   box-sizing: border-box;
 }
-
+ 
 .home-container h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
-
+ 
+/* ===== Description ===== */
 .description p {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  padding: 20px 500px;
-  justify-content: center;
+  padding: 20px 10%;
+  max-width: 800px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+ 
+/* ===== Search Bar ===== */
 .search-bar {
   margin-bottom: 40px;
   width: 90%;
   max-width: 1200px;
   box-sizing: border-box;
-  padding: 0;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
-
+ 
 .search-bar input {
-  width: 145%;
-  max-width: none;
+  width: 100%;
+  max-width: 600px;
   height: 50px;
   padding: 0 15px;
   border-radius: 12px;
@@ -53,8 +55,8 @@ body {
   font-size: 1rem;
   background-color: white;
 }
-
-/* Stil för både favoriter och resterande receptkort */
+ 
+/* ===== Recipe Lists ===== */
 .favorites-list,
 .other-list {
   display: flex;
@@ -67,7 +69,7 @@ body {
   width: 90%;
   max-width: 1200px;
 }
-
+ 
 .favorites-list li,
 .other-list li {
   background: #1a3c39;
@@ -79,15 +81,14 @@ body {
   width: 300px;
   transition: background-color 0.2s ease;
   font-size: 1.2rem;
-
 }
-
+ 
 .favorites-list li:hover,
 .other-list li:hover {
   background-color: rgb(61, 61, 61);
   cursor: pointer;
 }
-
+ 
 .favorites-list img,
 .other-list img {
   width: 100%;
@@ -96,19 +97,20 @@ body {
   border-radius: 8px;
   margin-bottom: 12px;
 }
-
+ 
 .favorites-list h3,
 .other-list h3 {
   margin-top: 10px;
   font-size: 1.2rem;
 }
-
+ 
 .favorites-list p,
 .other-list p {
   margin-bottom: 8px;
   text-align: center;
 }
-
+ 
+/* ===== Recipe Link ===== */
 .recipe-link {
   display: flex;
   flex-direction: column;
@@ -118,36 +120,79 @@ body {
   text-decoration: none;
   color: inherit;
 }
-
+ 
 .recipe-link:hover {
   color: white;
 }
-
+ 
+/* ===== Sections ===== */
 .favorites-section {
   margin-bottom: 30px;
   text-align: center;
 }
-
+ 
 .favorites-section ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   list-style: none;
   padding: 0;
 }
-
+ 
 .divider {
   border: none;
   border-top: 4px solid white;
   margin: 20px 0;
 }
-
+ 
 .other-section h2 {
   margin-top: 10px;
   color: white;
   text-align: center;
 }
-
+ 
 .recipe-meta {
   font-size: 1.2rem;
 }
+ 
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  /* Stack recipe cards vertically */
+  .favorites-list,
+  .other-list {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .favorites-list li,
+  .other-list li {
+    width: 90%;
+    max-width: 400px;
+  }
+ 
+  /* Adjust headings and text */
+  .home-container h1 {
+    font-size: 2rem;
+  }
+ 
+  .description p {
+    padding: 10px 5%;
+    font-size: 1rem;
+  }
+ 
+  /* Search bar mobile layout */
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .search-bar input {
+    width: 90%;
+  }
+ 
+  /* Make grid in favorites section single column */
+  .favorites-section ul {
+    grid-template-columns: 1fr;
+  }
+}
+ 
