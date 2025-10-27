@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../services/api";
-import  "../page/Recipe.css"; 
+import  "../pages/Recipe.css"; 
 
 export default function CommentList({ recipeId, refreshTrigger }) {
   const [comments, setComments] = useState([]);

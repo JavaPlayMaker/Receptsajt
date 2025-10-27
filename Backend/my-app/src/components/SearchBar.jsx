@@ -9,15 +9,16 @@ const handleKeyDown = (enter) => {
 };
 
 return (
+    <div className="search-bar">
     <input
     type="text"
-    placeholder="Sök"
+    placeholder="Sök:"
     value={searchQuery}
     onChange={(e) => setSearchQuery (e.target.value)}
     onKeyDown={handleKeyDown}
     
     />
+    </div>
   );
 }
-
 export default SearchBar;
