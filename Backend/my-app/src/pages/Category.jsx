@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import TodoList from "../components/ToDoList.jsx";
+import ToDoListNew from "../components/ToDoListNew.jsx";
 
 const Category = () => {
-    return (
-        <div>
-            <h1>Category Page</h1>
-            <TodoList />
-        </div>
-    );
+return (
+<div>
+<h1>Category Page</h1>
+<ToDoListNew />
+</div>
+);
 };
 
 export default Category; 

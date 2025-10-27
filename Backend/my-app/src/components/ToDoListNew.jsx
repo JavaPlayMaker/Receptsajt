@@ -3,7 +3,7 @@ import { postRating } from "../services/api";
 
 
 
-function TodoList({ instructions }) {
+function ToDoListNew({ instructions }) {
   const [checked, setChecked] = useState({});
 
   const toggleChecked = (index) => {
@@ -38,4 +38,4 @@ function TodoList({ instructions }) {
     </div>
   );
 }
-export default TodoList;
+export default ToDoListNew;
