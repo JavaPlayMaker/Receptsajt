@@ -16,10 +16,8 @@ return (
     value={searchQuery}
     onChange={(e) => setSearchQuery (e.target.value)}
     onKeyDown={handleKeyDown}
-    
     />
     </div>
   );
 }
-
 export default SearchBar;

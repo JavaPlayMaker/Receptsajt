@@ -44,7 +44,7 @@ export default function CommentList({ recipeId, refreshTrigger }) {
       {visibleComments.map((c) => (
         <div key={c._id} className="comment-item">
           <div className="comment-header">
-            <strong>{c.name}</strong>
+            <strong>{c.name} </strong>
             <small className="comment-date">
               {c.createdAt
                 ? new Date(c.createdAt).toLocaleString()
