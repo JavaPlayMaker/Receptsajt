@@ -1,7 +1,7 @@
 .site-footer {
   background: #18332f; 
   color: #f7f3ee;
-  padding: 2rem 5%;
+  padding: 0,5 0;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -10,7 +10,8 @@
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
-  max-width: 1400px;
+  max-width: non;
+  width: 100%;
   margin: 0 auto;
 }
 

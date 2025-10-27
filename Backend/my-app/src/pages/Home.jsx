@@ -88,7 +88,6 @@ const Home = () => {
           <hr className="divider" />
         </div>
       )}
-
       {/* The rest of the recipies */}
       {otherRecipes.length > 0 ? (
         <div className="other-section">

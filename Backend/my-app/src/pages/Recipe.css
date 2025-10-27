@@ -1,5 +1,7 @@
 /* --- Recipe layout --- */
 .recipe-container {
+  padding-top: 100px;
+  margin-top: 0;
   min-height: 100vh;
   background-color: #0d2d2a;
   color: white;
