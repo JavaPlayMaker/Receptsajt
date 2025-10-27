@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { postRating } from "../services/api";
 
-function TodoList({ instructions }) {
+
+
+
+function ToDoList({ instructions }) {
   const [checked, setChecked] = useState({});
 
   const toggleChecked = (index) => {
@@ -12,11 +14,14 @@ function TodoList({ instructions }) {
   };
 
   return (
-    <div>
-      <h3>Instruktioner</h3>
-      <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+    <div className="todo-card">
+      <h3>Instruktioner:</h3>
+         <p>
+        {Object.values(checked).filter(Boolean).length} / {instructions.length} steg avklarade!
+      </p>
+      <ul>
         {instructions.map((step, index) => (
-          <li key={index} style={{ marginBottom: "8px" }}>
+          <li key={index}>
             <label style={{ cursor: "pointer" }}>
               <input
                 type="checkbox"
@@ -29,11 +34,8 @@ function TodoList({ instructions }) {
           </li>
         ))}
       </ul>
-      <p>
-        {Object.values(checked).filter(Boolean).length} / {instructions.length} steg avklarade!
-      </p>
+   
     </div>
   );
 }
-
-export default TodoList;
+export default ToDoList;

@@ -10,10 +10,10 @@ export default function CommentsSection({ recipeId }) {
 
     setRefreshTrigger((prev) => prev + 1);
     
-    // Refresh after 5 second (to match thank-you display)
+    // Refresh after 3 second (to match thank-you display)
     setTimeout(() => {
       setFormResetTrigger((prev) => prev + 1);
-    }, 5000);
+    }, 3000);
   };
 
   return (
