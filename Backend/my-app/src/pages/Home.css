@@ -1,7 +1,10 @@
-/* ===== Base Styles ===== */
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
   width: 100%;
   overflow-x: hidden;
   background-color: #0d2d2a;
@@ -55,8 +58,6 @@ body {
   font-size: 1rem;
   background-color: white;
 }
- 
-/* ===== Recipe Lists ===== */
 .favorites-list,
 .other-list {
   display: flex;
@@ -154,45 +155,37 @@ body {
 .recipe-meta {
   font-size: 1.2rem;
 }
- 
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
-  /* Stack recipe cards vertically */
   .favorites-list,
   .other-list {
     flex-direction: column;
     align-items: center;
   }
- 
   .favorites-list li,
   .other-list li {
     width: 90%;
     max-width: 400px;
   }
- 
-  /* Adjust headings and text */
+
   .home-container h1 {
     font-size: 2rem;
   }
- 
+
   .description p {
     padding: 10px 5%;
     font-size: 1rem;
   }
- 
-  /* Search bar mobile layout */
   .search-bar {
     flex-direction: column;
     align-items: center;
   }
- 
+
   .search-bar input {
     width: 90%;
   }
- 
-  /* Make grid in favorites section single column */
   .favorites-section ul {
     grid-template-columns: 1fr;
   }
 }
- 
