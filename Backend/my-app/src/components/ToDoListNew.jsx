@@ -16,7 +16,7 @@ function ToDoListNew({ instructions }) {
   return (
     <div className="todo-card">
       <h3>Instruktioner:</h3>
-         <p>
+      <p>
         {Object.values(checked).filter(Boolean).length} / {instructions.length} steg avklarade!
       </p>
       <ul>
@@ -34,7 +34,6 @@ function ToDoListNew({ instructions }) {
           </li>
         ))}
       </ul>
-   
     </div>
   );
 }
