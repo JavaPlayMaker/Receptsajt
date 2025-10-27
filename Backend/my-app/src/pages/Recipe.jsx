@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import ToDoList from "../components/TodoList";
+import ToDoListNew from "../components/ToDoListNew";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
@@ -56,7 +56,7 @@ const Recipe = () => {
                 ))}
               </ul>
             </div>
-            <ToDoList instructions={recipe.instructions} />
+            <ToDoListNew instructions={recipe.instructions} />
           </div>
           <CommentsSection recipeId={recipe._id}/>
         </div>

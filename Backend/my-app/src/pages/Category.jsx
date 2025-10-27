@@ -1,11 +1,11 @@
 import React from "react";
-import ToDoList from "../components/ToDoList.jsx";
+import ToDoListNew from "../components/ToDoListNew.jsx";
 
 const Category = () => {
 return (
 <div>
 <h1>Category Page</h1>
-<ToDoList />
+<ToDoListNew />
 </div>
 );
 };
