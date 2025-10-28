@@ -51,11 +51,6 @@ const Navbar = () => {
             Hem
           </NavLink>
         </li>
-        <li className="button-link">
-          <NavLink to="/about" end>
-            Om oss
-          </NavLink>
-        </li>
 
         <li className="button-link dropdown" ref={dropdownRef}>
           <button
