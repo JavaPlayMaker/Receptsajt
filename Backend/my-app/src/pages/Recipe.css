@@ -20,7 +20,7 @@
 }
 img {
   max-width: 100%;
-  height: auto;
+  max-height: 400px;
   display: block;
   object-fit: cover;
   border-radius: 8px;
