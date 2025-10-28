@@ -1,8 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html,
 body {
@@ -14,7 +9,7 @@ body {
 }
 
 .home-container {
-  padding-top: 100px;
+  padding-top: 150px;
   margin-top: 0;
   min-height: 100vh;
   width: 100%;
@@ -34,7 +29,7 @@ body {
 /* Description */
 .description p {
   font-size: 1.5rem;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 20px;
   padding: 20px 10%;
   max-width: 800px;
@@ -51,7 +46,7 @@ body {
   box-sizing: border-box;
   display: flex;
   justify-content: left;
-  margin-left: 100px;
+  padding-left: 100px;
 }
 
 .search-bar input {
@@ -64,6 +59,7 @@ body {
   font-size: 1rem;
   background-color: white;
 }
+
 .favorites-list,
 .other-list {
   display: grid;
@@ -80,15 +76,14 @@ body {
 
 .favorites-list li,
 .other-list li {
+  width: 300px;
+  min-height: 450px; 
+  padding: 20px;
   background: #1a3c39;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-align: center;
-  padding: 20px;
-  width: 300px;
-  height: 450px;
-
   transition: background-color 0.2s ease;
   font-size: 1.2rem;
 }
@@ -178,7 +173,10 @@ body {
 .map-container {
   margin-top: 2rem;
   text-align: center;
-  width: 50%;
+  width: 60%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .map-container iframe {
@@ -189,6 +187,8 @@ body {
 }
 
 /* ===== Resposivitet  */
+
+/* recipecards */
 
 @media (max-width: 1024px) {
   .favorites-list,
@@ -206,3 +206,71 @@ body {
     grid-template-columns: 1fr; /* only one card on small screens */
   }
 }
+
+/* map on location */
+ 
+/* mobile */
+@media (max-width: 768px) {
+  .map-container {
+    width: 90%;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .map-container {
+    width: 95%;
+  }
+
+  .map-container iframe {
+    height: 250px;
+  }
+}
+
+/* searchbar */
+
+/* middle sixe screens */
+@media (max-width: 1024px) {
+  .search-bar {
+    padding-left: 4%;
+  }
+
+  .search-bar input {
+    max-width: 450px;
+    height: 45px;
+    font-size: 0.95rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+.home-container {
+    padding-top: 240px; /* padding on home otherwise the navbar override the info and ypu dont se the description */
+  }
+  .search-bar {
+    padding-left: 3%;
+  }
+
+  .search-bar input {
+    max-width: 350px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .search-bar {
+    padding-left: 2%;
+  }
+
+  .search-bar input {
+    max-width: 280px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+} 

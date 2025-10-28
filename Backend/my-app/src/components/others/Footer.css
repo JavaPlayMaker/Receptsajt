@@ -1,36 +1,84 @@
 .site-footer {
-  background: #18332f; 
-  color: #f7f3ee;
-  padding: 0,5 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: #0d2d2a; 
+  color: #ffffff;
+  border-top: 3px solid #1a3c39;
+  padding: 40px 60px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
+
 
 .footer-inner {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: flex-start;
-  max-width: non;
-  width: 100%;
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+/* logo */
 .footer-brand {
-  flex: 1 1 100px;
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-logo {
   width: 120px;
   height: auto;
-  display: block;
-  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
-.contact {
-flex: 1 1 100%;}
+.footer-logo:hover {
+  transform: scale(1.05);
+}
 
+/* contact */
+.contact {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.contact p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: rgb(61, 61, 61); 
+}
+
+/* socialmedia */
 .footer-social {
-flex: 1 1 100%;}
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-social p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
 
 .social-list {
   list-style: none;
@@ -38,98 +86,91 @@ flex: 1 1 100%;}
   margin: 0;
   display: flex;
   gap: 1rem;
-  align-items: center;
 }
 
 .social-list a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  color: #fff;
-  background: rgba(255,255,255,0.06); 
-  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
+  background-color: #1a3c39;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.social-list a img {
+.social-list a:hover {
+  background-color: #264743;
+  transform: scale(1.1);
+}
+
+.social-list img {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  transition: filter 0.12s ease;
 }
 
-
-.social-list a[href*="instagram"]:hover,
-.social-list a[href*="instagram"]:focus {
-  background: #1877f2;
-}
-
-.social-list a[href*="facebook"]:hover,
-.social-list a[href*="facebook"]:focus {
-  background: #1877f2;
-}
-
-.social-list a[href*="pinterest"]:hover,
-.social-list a[href*="pinterest"]:focus {
-  background: #1877f2;
-}
-
+/* rights */
 .footer-bottom {
-  margin-top: 1.5rem;
   text-align: center;
-  color: rgba(247, 243, 238, 0.9);
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.muted {
-  color: rgba(247, 243, 238, 0.85);
-}
-/* -------- Responsive Desi -------- */
+/* RESPOSIVE  */
 
-
-@media (min-width: 600px) {
+@media (max-width: 900px) {
   .footer-inner {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;   
   }
 
   .footer-brand,
   .contact,
   .footer-social {
-    flex: 1 1 200px;
-  }
-
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex: unset;       
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;  
   }
 }
 
-
-@media (min-width: 900px) {
+@media (max-width: 480px) {
   .footer-inner {
-    gap: 2rem;
-  }
-
-  .footer-brand {
-    flex: 2 1 300px;
-  }
-
-  .contact,
-  .footer-social {
-    flex: 1 1 200px;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .site-footer {
-    padding: 3rem 7%;
+    gap: 0.3rem;      
   }
 
   .footer-logo {
-    width: 160px;
+    width: 100px;
+    margin-bottom: 5px;
+  }
+
+  .contact h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact p {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+
+  .footer-social p {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .social-list {
+    gap: 0.5rem;       
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+    padding-top: 5px;
+    margin-top: 8px;
   }
 }
