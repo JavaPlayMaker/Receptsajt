@@ -1,35 +1,37 @@
 /* --- Container --- */
 .category-container {
-  min-height:calc(100vh - 150px);
   width: 100%;
-  padding: 20px;
-  padding-top: 140px; /* om navbar är fixed */
-  padding-bottom: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
+  min-height: 100vh; 
   background-color: #0d2d2a;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centrera horisontellt */
+  justify-content: flex-start;
+  padding-top: 160px;        /* under navbar */
+  padding-bottom: 160px;     /* plats före footer */
+  box-sizing: border-box;
+  text-align: center;
 }
 
 /* --- Page Title --- */
 .category-container h1 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin: 0 auto 40px auto;
   text-align: center;
 }
 
 /* --- Recipe Cards Grid --- */
 .category-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* flexibel grid som fyller bredden */
   gap: 50px;
-  justify-items: center;
+  justify-items: center;       /* centrera varje kort */
   width: 90%;
   max-width: 1200px;
+  list-style: none;
+  margin: 0 auto;
   padding: 0;
-   margin: 0 auto 50px auto;
 }
 
 /* --- Individual Recipe Card --- */
@@ -44,17 +46,15 @@
   text-align: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
   font-size: 1.2rem;
-  list-style: none;
 }
 
-/* Hover-effekt */
 .category-list li:hover {
   background-color: rgb(61, 61, 61);
   cursor: pointer;
   transform: translateY(-4px);
 }
 
-.category-list img {
+.recipe-link img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -72,7 +72,7 @@
   text-align: center;
 }
 
-/* Klickbara kort */
+/* --- Klickbara kort --- */
 .recipe-link {
   display: flex;
   flex-direction: column;
@@ -87,15 +87,26 @@
   color: white;
 }
 
-/* --- Responsive --- */
+/* --- Responsivitet --- */
 @media (max-width: 1024px) {
   .category-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* två kolumner */
   }
 }
 
 @media (max-width: 768px) {
+  .category-container {
+    padding-top: 240px;     /* som home */
+    padding-bottom: 200px;  /* extra plats för footer */
+  }
+
   .category-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* en kolumn */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-list {
+    gap: 30px; /* lite mindre mellanrum på mobiler */
   }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Navbar.css";
-import logo from "../assets/logo.png"
-import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { getAllCategories } from "../services/api";
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const dropdownRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     let mounted = true;
@@ -26,12 +27,16 @@ const Navbar = () => {
   // close dropdown when clicking outside
   useEffect(() => {
     function handleClick(e) {
-      if (isOpen && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if (
+        isOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
         setIsOpen(false);
       }
     }
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, [isOpen]);
 
   return (
@@ -65,15 +70,25 @@ const Navbar = () => {
           {isOpen && (
             <ul className="dropdown-menu" role="menu">
               {isLoading ? (
-                <li className="dropdown-item"><div className="spinner" aria-hidden="true"></div></li>
+                <li className="dropdown-item">
+                  <div className="spinner" aria-hidden="true"></div>
+                </li>
               ) : categories.length > 0 ? (
                 categories.map((catObj, idx) => {
-
-                  const label = typeof catObj === 'string' ? catObj : (catObj && (catObj.name || catObj.title || catObj.label)) || `kategori-${idx}`;
-                  const path = encodeURIComponent(String(label).toLowerCase());
+                  const label =
+                    typeof catObj === "string"
+                      ? catObj
+                      : (catObj &&
+                          (catObj.name || catObj.title || catObj.label)) ||
+                        `kategori-${idx}`;
+                  const path = encodeURIComponent(String(label));
                   return (
-                    <li key={label + idx} className="dropdown-item" role="none">
-                      <Link role="menuitem" to={`/category/${path}`} onClick={() => setIsOpen(false)}>
+                    <li key={label + idx} className={`dropdown-item ${location.pathname === `/category/${path}` ? 'active' : ''}`} role="none">
+                      <Link
+                        role="menuitem"
+                        to={`/category/${path}`}
+                        onClick={() => setIsOpen(false)}
+                      >
                         {label}
                       </Link>
                     </li>
@@ -85,7 +100,6 @@ const Navbar = () => {
             </ul>
           )}
         </li>
-      
       </ul>
     </div>
   );

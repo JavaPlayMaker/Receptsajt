@@ -1,10 +1,9 @@
-/* --- Navbar --- */
 .navbar {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 150px; /* standard desktop height */
+  height: 150px; 
   background-color: #0d2d2a;
   display: flex;
   align-items: center;
@@ -43,19 +42,23 @@
 /* Nav links */
 .button-link a,
 .dropdown-btn {
-  color: white;
-  text-decoration: none;
+  display: inline-flex;           
+  align-items: center;            
+  justify-content: center;        
+  height: 50px;                   
+  padding: 0 1.2rem;              
   font-size: 1.2rem;
-  font-weight: 500;
-  background: transparent;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
+  background-color: #ea0029;
+  color: white;
+  text-decoration: none;
 }
 
 .button-link a:hover,
 .dropdown-btn:hover {
-  color: rgb(61, 61, 61);
+  background-color: #C20022;  
   transform: translateY(-2px);
 }
 
@@ -65,6 +68,9 @@
 }
 
 .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; 
   position: absolute;
   top: 110%;
   left: 0;
@@ -79,26 +85,38 @@
 }
 
 .dropdown-item {
-  padding: 10px 20px;
-  text-align: left;
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
+  text-align: center;
+  height: 50px;               
+  padding: 0 20px;          
 }
 
 .dropdown-item a {
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
+  width: 100%;                
+  height: 100%;              
   color: white;
   text-decoration: none;
-  display: block;
-  transition: background-color 0.2s ease;
+}
+
+.dropdown-item.active a {
+  font-weight: bold;
+  color: white; 
 }
 
 .dropdown-item a:hover {
-  background-color: #264743;
+  background-color: #C20022;  
 }
 
 /* Responsivitet för navbar */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    height: auto; /* dynamisk höjd */
+    height: auto;
     padding: 15px 20px;
     gap: 10px;
   }

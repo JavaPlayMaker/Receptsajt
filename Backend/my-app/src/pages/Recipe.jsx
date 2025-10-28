@@ -37,25 +37,25 @@ const Recipe = () => {
             />
           )}
 
-          {/* --- Stjärnbetyg --- */}
+          {/* star rating on recipe */}
           <div className="recipe-rating">
             <RatingStars recipeId={recipe._id} />
           </div>
 
-          {/* --- Svårighetsgrad --- */}
+          {/* cooking difficulty */}
           <div className="recipe-difficulty">
             <RecipeDifficulty timeInMins={recipe.timeInMins}/>
           </div>
 
-          {/* --- Beskrivning --- */}
+          {/* recipe description */}
           <p className="recipe-description">{recipe.description}</p>
 
-          {/* --- Tid och pris --- */}
+          {/* cookingtime and price */}
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>    
 
-          {/* --- Ingredienser + steg --- */}
+          {/* ingrediens and todo list */}
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
@@ -71,7 +71,7 @@ const Recipe = () => {
             <ToDoList instructions={recipe.instructions} />
           </div>
 
-          {/* --- Kommentarer --- */}
+          {/* comment section */}
           <CommentsSection recipeId={recipe._id}/>
         </div>
       ) : (
