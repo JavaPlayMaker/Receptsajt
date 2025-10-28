@@ -1,15 +1,15 @@
 .site-footer {
-  background: #18332f; /* dark green background requested */
-  color: #f7f3ee; /* light text for contrast */
-  width: 100%; /*la till den så den sträcker sig hela sidans bredd*/
+  background: #18332f; 
+  color: #f7f3ee; 
+  width: 100%; 
   box-sizing: border-box;
   padding: 2rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .footer-inner {
-  max-width: 1200px; /* centrerad wrapper */
-  margin: 0 auto; /* centrerar innehållet */
+  max-width: 1200px; 
+  margin: 0 auto; 
   display: flex;
   gap: 2rem;
   align-items: flex-start;
@@ -41,7 +41,7 @@
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 1rem; /* increase spacing between items */
+  gap: 1rem; 
   align-items: center;
 }
 
@@ -49,24 +49,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem 0.8rem; /* padding instead of fixed width so text fits */
+  padding: 0.4rem 0.8rem; 
   min-height: 40px;
   border-radius: 8px;
   color: #fff;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.06
-  ); /* subtle light background on dark footer */
+  background: rgba(255, 255, 255, 0.06);
   transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
 }
 
 .social-list a svg {
-  color: #fff; /* icons white by default */
+  color: #fff;
 }
 
-/* Hover color shifts for each network */
 .social-instagram:hover {
   background: radial-gradient(
     circle at 30% 30%,
@@ -100,7 +94,7 @@
 .footer-bottom {
   margin-top: 1.5rem;
   text-align: center;
-  color: rgba(247, 243, 238, 0.9); /* slightly faded but readable */
+  color: rgba(247, 243, 238, 0.9);
 }
 
 .muted {

@@ -7,8 +7,6 @@ import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
 import CommentsSection from "../components/CommentSection";
 
-
-
 const Recipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState([]);
@@ -30,6 +28,7 @@ const Recipe = () => {
       {recipe ? (
         <div className="recipe-card">
           <h1 className="recipe-title">{recipe.title}</h1>
+
           {recipe.imageUrl && (
             <img
               src={recipe.imageUrl}
@@ -37,14 +36,26 @@ const Recipe = () => {
               className="recipe-image"
             />
           )}
-          <RatingStars recipeId={recipe._id} /> 
-          <RecipeDifficulty timeInMins={recipe.timeInMins}/>
-          <p>{recipe.description}</p>
+
+          {/* --- Stjärnbetyg --- */}
+          <div className="recipe-rating">
+            <RatingStars recipeId={recipe._id} />
+          </div>
+
+          {/* --- Svårighetsgrad --- */}
+          <div className="recipe-difficulty">
+            <RecipeDifficulty timeInMins={recipe.timeInMins}/>
+          </div>
+
+          {/* --- Beskrivning --- */}
+          <p className="recipe-description">{recipe.description}</p>
+
+          {/* --- Tid och pris --- */}
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
-          </p>
+          </p>    
 
-     
+          {/* --- Ingredienser + steg --- */}
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
@@ -56,8 +67,11 @@ const Recipe = () => {
                 ))}
               </ul>
             </div>
+
             <ToDoList instructions={recipe.instructions} />
           </div>
+
+          {/* --- Kommentarer --- */}
           <CommentsSection recipeId={recipe._id}/>
         </div>
       ) : (

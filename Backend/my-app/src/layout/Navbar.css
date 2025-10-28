@@ -1,31 +1,30 @@
+/* --- Navbar --- */
 .navbar {
-   height: 150px;
-  position: fixed; 
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
- 
-  background-color: #0d2d2a; 
+  height: 150px; /* standard desktop height */
+  background-color: #0d2d2a;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   padding: 0 60px;
   box-sizing: border-box;
   z-index: 1000;
-  border-bottom: 3px solid #1a3c39; 
+  border-bottom: 3px solid #1a3c39;
 }
 
 /* Logo */
 .header-logo {
-  position: absolute; 
+  position: absolute;
   left: 60px;
   top: 50%;
   transform: translateY(-50%);
-  height: auto;
   width: 120px;
   cursor: pointer;
-  transition: transform 0.2s ease;
   border-radius: 8px;
+  transition: transform 0.2s ease;
 }
 
 .header-logo:hover {
@@ -95,52 +94,19 @@
   background-color: #264743;
 }
 
-/* Spinner */
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #ffffff40;
-  border-top: 3px solid white;
-  border-radius: 50%;
-  margin: 0 auto;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* RESPONSIVITET */
-
-
+/* Responsivitet för navbar */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    height: auto;
+    height: auto; /* dynamisk höjd */
     padding: 15px 20px;
+    gap: 10px;
   }
 
   .header-logo {
-    position: static; 
+    position: static;
     transform: none;
     margin-bottom: 10px;
-  }
-
-  .nav-ul {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 15px 20px;
-    gap: 10px; 
   }
 
   .nav-ul {

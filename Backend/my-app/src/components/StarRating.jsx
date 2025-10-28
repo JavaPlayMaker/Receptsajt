@@ -38,7 +38,7 @@ export default function RatingStars({ recipeId }) {
       ))}
 
       {submitted && (
-        <p style={{ marginTop: "0.5rem", color: "green" }}>
+        <p style={{ marginTop: "0.5rem", color: "white", fontSize: "1.5rem" }}>
           Tack för ditt betyg! ({rating} stjärnor)
         </p>
       )}
