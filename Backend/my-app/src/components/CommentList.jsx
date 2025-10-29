@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../services/api";
-import "./others/CommentList.css"; 
+import "./CommentList.css";
+import  "../pages/Recipe.css"; 
 
 export default function CommentList({ recipeId, refreshTrigger }) {
   const [comments, setComments] = useState([]);
@@ -48,7 +49,7 @@ export default function CommentList({ recipeId, refreshTrigger }) {
                 : ""}
             </small>
           </div>
-          <p className="comment-text">{c.comment}</p>
+          <p className="comment-text" data-testid="comment-text">{c.comment}</p>
         </div>
       ))}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 // import '../index.css'
 // import './header.css'
-import '../layout/navbar.css'
+import '../layout/Navbar.css'
 import Navbar from '../layout/Navbar';
 
 const Header = () => {

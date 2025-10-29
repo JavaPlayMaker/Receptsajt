@@ -3,7 +3,7 @@ import { postRating } from "../services/api";
 
 
 
-function ToDoList({ instructions }) {
+function ToDoListNew({ instructions }) {
   const [checked, setChecked] = useState({});
 
   const toggleChecked = (index) => {
@@ -16,7 +16,7 @@ function ToDoList({ instructions }) {
   return (
     <div className="todo-card">
       <h3>Instruktioner:</h3>
-         <p>
+      <p>
         {Object.values(checked).filter(Boolean).length} / {instructions.length} steg avklarade!
       </p>
       <ul>
@@ -34,8 +34,7 @@ function ToDoList({ instructions }) {
           </li>
         ))}
       </ul>
-   
     </div>
   );
 }
-export default ToDoList;
+export default ToDoListNew;

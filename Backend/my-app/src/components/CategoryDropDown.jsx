@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRecipesByCategory } from "../services/api";
 import "../pages/Category.css"
+
 import RecipeDifficulty from "./RecipeDifficulty";
 
 

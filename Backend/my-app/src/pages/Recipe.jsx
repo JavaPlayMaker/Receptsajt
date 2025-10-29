@@ -5,23 +5,38 @@ import ToDoList from "../components/ToDoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
-import CommentsSection from "../components/CommentSection";
+import CommentsSection from "../components/CommentsSection";
+import AmountOfPortion from "../components/AmountOfPortion";
 
 const Recipe = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState([]);
+  const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+  const [currentPortions, setCurrentPortions] = useState(1);
+
   useEffect(() => {
     getRecipe(id)
-      .then((data) => setRecipe(data))
+      .then((data) => {
+        setRecipe(data);
+        setCurrentPortions(data.portions || 1);
+      })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [id]);
 
+
+  const scaleIngredientAmount = (amount) => {
+    if (!recipe || !recipe.portions) return amount;
+    const factor = currentPortions / recipe.portions;
+    return (amount * factor).toFixed(2).replace(/\.00$/, "");
+  };
+
   if (loading) return <p>Recept laddar...</p>;
   if (error) return <p>Error: {error}</p>;
+  if (!recipe) return <p>Inget recept hittades.</p>;
 
   return (
     <div className="recipe-container">
@@ -55,21 +70,20 @@ const Recipe = () => {
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
 
-          {/* ingrediens and todo list */}
-          <div className="recipe-details">
-            <div className="ingredients-card">
-              <h2>Ingredienser:</h2>
-              <ul>
-                {recipe.ingredients.map((ing, i) => (
-                  <li key={i}>
-                    {ing.amount} {ing.unit} {ing.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
+       {/* Ingredients and to-do list */}
+<div className="recipe-details">
+  <div className="ingredients-card">
+    <h2>Ingredienser:</h2>
+    <AmountOfPortion
+      recipe={recipe}
+      currentPortions={currentPortions}
+      setCurrentPortions={setCurrentPortions}
+    />
 
-            <ToDoList instructions={recipe.instructions} />
-          </div>
+     </div>
+
+  <ToDoList instructions={recipe.instructions} />
+</div>
 
           {/* comment section */}
           <CommentsSection recipeId={recipe._id} />
@@ -78,6 +92,7 @@ const Recipe = () => {
         <p>Inget recept hittades.</p>
       )}
     </div>
+      
   );
 };
 

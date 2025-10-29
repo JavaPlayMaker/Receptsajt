@@ -7,21 +7,21 @@
   border: none;                       
   background-color: white;          
   color: black;                       
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   font-size: 1rem;
 }
-
+ 
 .comment-form input:focus,
 .comment-form textarea:focus {
   outline: none;                      
   background-color: white;          
 }
-
+ 
 .comment-form textarea {
   min-height: 100px;
   resize: vertical;
 }
-
+ 
 .comment-form button {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
@@ -34,7 +34,8 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   transition: background-color 0.3s ease;
 }
-
+ 
 .comment-form button:hover {
   background-color: #C20022;          
 }
+ 
