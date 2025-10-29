@@ -6,27 +6,27 @@
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;       /* centrera horisontellt */
+  align-items: center;      
   justify-content: flex-start;
-  padding-top: 160px;        /* under navbar */
-  padding-bottom: 160px;     /* plats före footer */
+  padding-top: 160px;       
+  padding-bottom: 160px;     
   box-sizing: border-box;
   text-align: center;
 }
 
-/* --- Page Title --- */
+/* Page title */
 .category-container h1 {
   font-size: 2.5rem;
   margin: 0 auto 40px auto;
   text-align: center;
 }
 
-/* --- Recipe Cards Grid --- */
+/* Recipe Cards Grid */
 .category-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* flexibel grid som fyller bredden */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 50px;
-  justify-items: center;       /* centrera varje kort */
+  justify-items: center;       
   width: 90%;
   max-width: 1200px;
   list-style: none;
@@ -34,7 +34,7 @@
   padding: 0;
 }
 
-/* --- Individual Recipe Card --- */
+/* Individual Recipe Card */
 .category-list li {
   width: 300px;
   min-height: 450px;
@@ -87,26 +87,26 @@
   color: white;
 }
 
-/* --- Responsivitet --- */
+/* Responsivitet */
 @media (max-width: 1024px) {
   .category-list {
-    grid-template-columns: repeat(2, 1fr); /* två kolumner */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (max-width: 768px) {
   .category-container {
-    padding-top: 240px;     /* som home */
-    padding-bottom: 200px;  /* extra plats för footer */
+    padding-top: 240px;     
+    padding-bottom: 200px;  
   }
 
   .category-list {
-    grid-template-columns: 1fr; /* en kolumn */
+    grid-template-columns: 1fr; 
   }
 }
 
 @media (max-width: 480px) {
   .category-list {
-    gap: 30px; /* lite mindre mellanrum på mobiler */
+    gap: 30px; 
   }
 }

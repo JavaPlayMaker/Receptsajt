@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import ToDoList from "../components/ToDoList";  
+import ToDoList from "../components/ToDoList";
 import { getRecipe } from "../services/api";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
@@ -44,7 +44,7 @@ const Recipe = () => {
 
           {/* cooking difficulty */}
           <div className="recipe-difficulty">
-            <RecipeDifficulty timeInMins={recipe.timeInMins}/>
+            <RecipeDifficulty timeInMins={recipe.timeInMins} />
           </div>
 
           {/* recipe description */}
@@ -53,7 +53,7 @@ const Recipe = () => {
           {/* cookingtime and price */}
           <p className="recipe-meta">
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
-          </p>    
+          </p>
 
           {/* ingrediens and todo list */}
           <div className="recipe-details">
@@ -72,7 +72,7 @@ const Recipe = () => {
           </div>
 
           {/* comment section */}
-          <CommentsSection recipeId={recipe._id}/>
+          <CommentsSection recipeId={recipe._id} />
         </div>
       ) : (
         <p>Inget recept hittades.</p>
