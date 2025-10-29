@@ -91,7 +91,7 @@ const Recipe = () => {
   <ToDoList instructions={recipe.instructions} />
 </div>
 
-        {/* comment section */}
+          {/* comment section */}
           <CommentsSection recipeId={recipe._id} />
         </div>
       ) : (
