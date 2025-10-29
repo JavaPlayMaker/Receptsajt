@@ -62,22 +62,21 @@ body {
 .favorites-list,
 .other-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 50px; 
-  justify-items: center; 
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  justify-items: center;
+  align-items: stretch; 
   list-style: none;
   padding: 0;
-  margin: 0 auto; 
+  margin: 0 auto;
   width: 90%;
   max-width: 1200px;
 }
 
 .favorites-list li,
 .other-list li {
-  width: 300px;
-  min-height: 450px; 
-  padding: 20px;
+  width: 100%;
+  max-width: 300px;
   background: #1a3c39;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -85,6 +84,9 @@ body {
   text-align: center;
   transition: background-color 0.2s ease;
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .favorites-list li:hover,
