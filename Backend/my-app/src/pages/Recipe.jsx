@@ -28,11 +28,13 @@ const Recipe = () => {
   }, [id]);
 
 
-  const scaleIngredientAmount = (amount) => {
-    if (!recipe || !recipe.portions) return amount;
-    const factor = currentPortions / recipe.portions;
-    return (amount * factor).toFixed(2).replace(/\.00$/, "");
-  };
+const scaleIngredientAmount = (amount) => {
+  if (!recipe || !recipe.portions) return amount;
+  const scaled = (amount / recipe.portions) 
+    * currentPortions;
+  return scaled;
+}
+
 
   if (loading) return <p>Recept laddar...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -79,6 +81,7 @@ const Recipe = () => {
       currentPortions={currentPortions}
       setCurrentPortions={setCurrentPortions}
     />
+
      </div>
 
   <ToDoList instructions={recipe.instructions} />

@@ -20,7 +20,7 @@ return (
 <ul>
     {recipe.ingredients.map((ing) => (
         <li key={ing._id}>
-            {(ing.amount * portion).toFixed(2)} {ing.unit} {ing.name}
+{Number(ing.amount * portion).toLocaleString(undefined, { maximumFractionDigits: 2 })} {ing.unit} {ing.name}
         </li>
     ))}
 </ul>
