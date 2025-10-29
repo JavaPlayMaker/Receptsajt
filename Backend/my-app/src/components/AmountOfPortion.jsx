@@ -1,0 +1,30 @@
+import React, { useEffect, useState } from "react";
+
+export default function AmountOfPortion({ recipe}) {
+    const [portion, setPortion] = useState(1);
+
+    if (!recipe) return <p>Laddar recept...</p>;
+
+return (
+    <div>
+        <label>
+            Antal portioner:{" "}
+            <input
+                type="number"
+                min="1"
+            value={portion}
+          onChange={(e) => setPortion(e.target.value)}
+        />        
+    </label>
+
+<ul>
+    {recipe.ingredients.map((ing) => (
+        <li key={ing._id}>
+            {(ing.amount * portion).toFixed(2)} {ing.unit} {ing.name}
+        </li>
+    ))}
+</ul>
+
+    </div>
+);
+}

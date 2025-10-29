@@ -52,45 +52,46 @@ const Home = () => {
     (r) => !pinnedIds.includes(r._id)
   );
 
-  return (
-    <div className="home-container">
-      <div className="description">
-        <Description />
+return (
+  <div className="home-container">
+    <div className="description">
+      <Description />
+    </div>
+
+    <div className="search-bar">
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSearch={handleSearch}
+      />
+    </div>
+
+    {/* Favorite recipes */}
+    {pinnedRecipes.length > 0 && (
+      <div className="favorites-section">
+        <h2>Våra favoritrecept:</h2>
+        <ul className="favorites-list">
+          {pinnedRecipes.map((r) => (
+            <li key={r._id}>
+              <Link to={`/recipe/${r._id}`} className="recipe-link">
+                <h3>{r.title}</h3>
+                {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
+                <p>{r.description}</p>
+                <RecipeDifficulty timeInMins={r.timeInMins} />
+                <p>
+                  ⏱ {r.timeInMins} min | 💰 {r.price} SEK
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <hr className="divider" />
       </div>
+    )}
 
-      <div className="search-bar">
-        <SearchBar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onSearch={handleSearch}
-        />
-      </div>
-
-      {/* Favorite recipies*/}
-      {pinnedRecipes.length > 0 && (
-        <div className="favorites-section">
-          <h2>Våra favoritrecept: </h2>
-          <ul className="favorites-list">
-            {pinnedRecipes.map((r) => (
-              <li key={r._id}>
-                <Link to={`/recipe/${r._id}`} className="recipe-link">
-                  <h3>{r.title}</h3>
-                  {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
-                  <p>{r.description}</p>
-                  <RecipeDifficulty timeInMins={r.timeInMins} />
-                  <p>
-                    ⏱ {r.timeInMins} min | 💰 {r.price} SEK
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <hr className="divider" />
-        </div>
-      )}
-
-      {/* The rest of the recipies */}
-      {otherRecipes.length > 0 ? (
+    {/* The rest of the recipes */}
+    {otherRecipes.length > 0 ? (
+      <>
         <div className="other-section">
           <h2>Resterande av våra recept:</h2>
           <ul className="other-list">
@@ -109,11 +110,24 @@ const Home = () => {
             ))}
           </ul>
         </div>
-      ) : (
-        <p>Inga fler recept hittades.</p>
-      )}
-    </div>
-  );
+
+        {/* Map section */}
+        <h2 className="map-title">Vår plats i Stockholm</h2>
+        <div className="map-container">
+          <iframe
+            title="Stockholm Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.427379330166!2d18.06324047604854!3d59.33459198193898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d2f3c05c3d1%3A0x400af0f661eb040!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </>
+    ) : (
+      <p>Inga fler recept hittades.</p>
+    )}
+  </div>
+);
 };
 
 export default Home;
