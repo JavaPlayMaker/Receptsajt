@@ -79,13 +79,7 @@ const Recipe = () => {
       currentPortions={currentPortions}
       setCurrentPortions={setCurrentPortions}
     />
-    <ul>
-      {recipe?.ingredients?.map((ing, i) => (
-        <li key={i}>
-          {scaleIngredientAmount(ing.amount)} {ing.unit} {ing.name}
-        </li>
-      )) || <li>Inga ingredienser tillgängliga.</li>}
-    </ul>
+
      </div>
 
   <ToDoList instructions={recipe.instructions} />
