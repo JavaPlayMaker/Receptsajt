@@ -6,7 +6,7 @@
   gap: 1rem;             
 }
 .comment-table {
-  width: 70%;              /* only 70% of container width */
+  width: 70%;              
   border-collapse: collapse;
 }
  
