@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { getAllCategories } from "../services/api";
+import { getAllCategories, getRecipesByCategory } from "../services/api";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [counts, setCounts] = useState({});
+  const [countsLoading, setCountsLoading] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
@@ -38,6 +40,52 @@ const Navbar = () => {
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || categories.length === 0) return;
+
+    const labels = categories.map((catObj, idx) =>
+      typeof catObj === "string"
+        ? catObj
+        : (catObj && (catObj.name || catObj.title || catObj.label)) ||
+          `kategori-${idx}`
+    );
+
+    const missing = labels.filter((lbl) => counts[lbl] === undefined);
+    if (missing.length === 0) return;
+
+    let mounted = true;
+    setCountsLoading(true);
+
+    Promise.all(
+      missing.map(async (lbl) => {
+        try {
+          const data = await getRecipesByCategory(lbl.toLowerCase());
+          return { lbl, count: Array.isArray(data) ? data.length : 0 };
+        } catch (err) {
+          return { lbl, count: 0 };
+        }
+      })
+    )
+      .then((results) => {
+        if (!mounted) return;
+        setCounts((prev) => {
+          const next = { ...prev };
+          results.forEach(({ lbl, count }) => {
+            next[lbl] = count;
+          });
+          return next;
+        });
+      })
+      .finally(() => {
+        if (!mounted) return;
+        setCountsLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [isOpen, categories, counts]);
 
   return (
     <div className="navbar">
@@ -76,15 +124,29 @@ const Navbar = () => {
                       : (catObj &&
                           (catObj.name || catObj.title || catObj.label)) ||
                         `kategori-${idx}`;
-                  const path = encodeURIComponent(String(label));
+                  const path = encodeURIComponent(String(label).toLowerCase());
+                  const displayCount = counts[label];
                   return (
-                    <li key={label + idx} className={`dropdown-item ${location.pathname === `/category/${path}` ? 'active' : ''}`} role="none">
+                    <li
+                      key={label + idx}
+                      className={`dropdown-item ${
+                        location.pathname === `/category/${path}`
+                          ? "active"
+                          : ""
+                      }`}
+                      role="none"
+                    >
                       <Link
                         role="menuitem"
                         to={`/category/${path}`}
                         onClick={() => setIsOpen(false)}
                       >
                         {label}
+                        <span className="cat-count">
+                          {countsLoading && displayCount === undefined
+                            ? "…"
+                            : ` (${displayCount ?? 0})`}
+                        </span>
                       </Link>
                     </li>
                   );

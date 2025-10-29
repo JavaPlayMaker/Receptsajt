@@ -1,6 +1,5 @@
-
 .recipe-container {
-  padding-top: 20px; 
+  padding-top: 20px;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -10,7 +9,7 @@
   padding-bottom: 40px;
   padding-left: 20px;
   box-sizing: border-box;
-} 
+}
 
 .recipe-title {
   font-size: 2.5rem;
@@ -33,15 +32,15 @@ img {
   margin: 40px auto 30px auto;
   display: block;
   object-fit: cover;
-} 
+}
 
 .recipe-details {
   display: flex;
-  gap: 30px; 
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 40px;
-} 
+}
 .recipe-rating {
   display: flex;
   justify-content: center;
@@ -50,13 +49,13 @@ img {
 }
 
 .star-rating {
-  font-size: 3rem; 
+  font-size: 3rem;
   color: #facc15;
 }
 
 .recipe-difficulty {
   text-align: center;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: white;
   font-weight: 600;
   margin-bottom: 10px;
@@ -76,7 +75,7 @@ img {
   color: #d1d5db;
   margin-bottom: 25px;
 }
- /* Cards */
+/* Cards */
 .ingredients-card,
 .todo-card {
   background: #1a3c39;
@@ -100,7 +99,7 @@ img {
   margin-bottom: 6px;
   font-size: 1.3rem;
   text-align: left;
-} 
+}
 
 /* Todo Card */
 .todo-card {
@@ -160,18 +159,18 @@ img {
   padding: 10px;
   background: #264743;
   border-radius: 8px;
-} 
+}
 
 /* Placeholder styling for search bar if used */
 .search-bar input::placeholder {
   color: #1a3c39;
   opacity: 1;
-} 
+}
 
 /* Responsive */
 @media (max-width: 768px) {
   .recipe-container {
-    padding-top: 240px; 
+    padding-top: 240px;
   }
   .recipe-details {
     flex-direction: column;
@@ -185,7 +184,7 @@ img {
 }
 @media (max-width: 480px) {
   .recipe-container {
-    padding-top: 280px; 
+    padding-top: 280px;
   }
   .ingredients-card,
   .todo-card {
