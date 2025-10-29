@@ -1,10 +1,5 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
   background-color: #0d2d2a;
@@ -13,6 +8,8 @@ html, body {
 }
 
 .home-container {
+  padding-top: 20px;
+  margin-top: 0;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -23,12 +20,15 @@ html, body {
 }
 
 .home-container h1 {
+  margin-top: 20px;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
+/* Description */
 .description p {
   font-size: 1.5rem;
+  margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px 10%;
   max-width: 800px;
@@ -37,18 +37,20 @@ html, body {
   margin-right: auto;
 }
 
+/* Search Bar */
 .search-bar {
   margin-bottom: 40px;
   width: 90%;
   max-width: 1200px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  padding-left: 100px;
 }
 
 .search-bar input {
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
   height: 50px;
   padding: 0 15px;
   border-radius: 12px;
@@ -59,26 +61,28 @@ html, body {
 
 .favorites-list,
 .other-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 50px; 
+  justify-items: center; 
+  align-items: start;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto; 
   width: 90%;
   max-width: 1200px;
 }
 
 .favorites-list li,
 .other-list li {
+  width: 300px;
+  min-height: 450px; 
+  padding: 20px;
   background: #1a3c39;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-align: center;
-  padding: 15px;
-  width: 300px;
   transition: background-color 0.2s ease;
   font-size: 1.2rem;
 }
@@ -110,6 +114,7 @@ html, body {
   text-align: center;
 }
 
+/* Recipe Link */
 .recipe-link {
   display: flex;
   flex-direction: column;
@@ -124,27 +129,29 @@ html, body {
   color: white;
 }
 
+/* Sections */
 .favorites-section {
-  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: white;
   text-align: center;
 }
 
-.favorites-section ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
+.favorites-section h2 {
+  margin-bottom: 50px; 
+  font-size: 2rem;
 }
 
 .divider {
   border: none;
   border-top: 4px solid white;
-  margin: 20px 0;
+  margin: 60px 0 60px 0 ;
 }
 
 .other-section h2 {
   margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 2rem;
   color: white;
   text-align: center;
 }
@@ -153,38 +160,116 @@ html, body {
   font-size: 1.2rem;
 }
 
-/* ===== Responsive Design ===== */
+/*Location */
+
+.map-title {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 2.2rem;
+  color: white;
+}
+.map-container {
+  margin-top: 2rem;
+  text-align: center;
+  width: 60%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 8px;
+}
+
+/*  Responsive  */
+
+/* recipecards */
+
+@media (max-width: 1024px) {
+  .favorites-list,
+  .other-list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* two recipecard on middlesize screens */
+  }
+}
+
 @media (max-width: 768px) {
   .favorites-list,
   .other-list {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr; /* only one card on small screens */
   }
+}
 
-  .favorites-list li,
-  .other-list li {
+/* map on location */
+ 
+/* mobile */
+@media (max-width: 768px) {
+  .map-container {
     width: 90%;
-    max-width: 400px;
   }
 
-  .home-container h1 {
-    font-size: 2rem;
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .map-container {
+    width: 95%;
   }
 
-  .description p {
-    padding: 10px 5%;
-    font-size: 1rem;
+  .map-container iframe {
+    height: 250px;
   }
+}
 
+/* searchbar */
+
+/* middle sixe screens */
+@media (max-width: 1024px) {
   .search-bar {
-    flex-direction: column;
-    align-items: center;
+    padding-left: 4%;
   }
 
   .search-bar input {
-    width: 90%;
-  }
-  .favorites-section ul {
-    grid-template-columns: 1fr;
+    max-width: 450px;
+    height: 45px;
+    font-size: 0.95rem;
   }
 }
+
+/* mobile */
+@media (max-width: 768px) {
+.home-container {
+    padding-top: 240px; /* padding on home otherwise the navbar override the info and ypu dont se the description */
+  }
+  .search-bar {
+    padding-left: 3%;
+  }
+
+  .search-bar input {
+    max-width: 350px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .search-bar {
+    padding-left: 2%;
+  }
+
+  .search-bar input {
+    max-width: 280px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+} 

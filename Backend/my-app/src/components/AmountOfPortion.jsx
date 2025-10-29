@@ -7,9 +7,8 @@ export default function AmountOfPortion({ recipe}) {
 
 return (
     <div>
-        <h2>{recipe.title}</h2>
         <label>
-            Amtal portioner:{" "}
+            Antal portioner:{" "}
             <input
                 type="number"
                 min="1"
