@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { postComment } from "../services/api";
-import "./others/CommentForm.css";
+import "./CommentForm.css";
 import "../pages/Recipe.css"; 
 
 export default function CommentForm({ recipeId, onCommentAdded, resetTrigger }) {
