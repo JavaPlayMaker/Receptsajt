@@ -9,7 +9,7 @@ const handleKeyDown = (enter) => {
 };
 
 return (
-    <div className="serch-bar">
+    <div className="search-bar">
     <input
     type="text"
     placeholder="Sök:"

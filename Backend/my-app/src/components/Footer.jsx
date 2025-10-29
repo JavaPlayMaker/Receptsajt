@@ -2,7 +2,7 @@ import React from "react";
 import facebook from "../assets/facebook.png";
 import instagram from "../assets/instagram.png";
 import pinterest from "../assets/pinterest.png";
-import "./others/Footer.css";
+import "./Footer.css";
 import logo from "../assets/logo.png";
 import { Link } from "react-router";
 
