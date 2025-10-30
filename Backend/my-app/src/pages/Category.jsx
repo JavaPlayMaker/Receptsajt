@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRecipesByCategory } from "../services/api";
-import "../pages/Category.css"
+import "./Category.css"
 
-import RecipeDifficulty from "./RecipeDifficulty";
+import RecipeDifficulty from "../components/RecipeDifficulty";
 
 
-export default function CategoryDropDown() {
+export default function Category() {
   const { category } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function CategoryDropDown() {
 
   return (
     <div className="category-container">
-      <h1>{category}</h1>
+      <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
       {recipes.length > 0 ? (
         <ul className="category-list">
            {recipes.map((recipe) => (

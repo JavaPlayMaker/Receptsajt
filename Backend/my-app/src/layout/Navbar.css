@@ -112,6 +112,10 @@
   background-color: #C20022;  
 }
 
+.cat-count {
+  margin-left: 6px; 
+}
+
 /* Responsivitet för navbar */
 @media (max-width: 768px) {
   .navbar {

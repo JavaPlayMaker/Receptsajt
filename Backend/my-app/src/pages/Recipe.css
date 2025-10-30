@@ -52,6 +52,48 @@ img {
   font-size: 3rem;
   color: #facc15;
 }
+/* --- Rating stars --- */
+.recipe-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 4rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.star {
+  font-size: 2.5rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star.filled {
+  color: #facc15; /* gul */
+}
+
+.star.hovered {
+  transform: scale(1.2); /* liten pop-effekt */
+}
+
+.rating-thanks {
+  margin-top: 0.5rem;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.rating-error {
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
 
 .recipe-difficulty {
   text-align: center;
@@ -97,8 +139,37 @@ img {
 }
 .ingredients-card li {
   margin-bottom: 6px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: left;
+}
+.portion-label {
+  font-size: 1.5rem; 
+  font-weight: 600;   
+  margin-right: 20px; 
+  margin-bottom: 20px;
+}
+
+.portion-input {
+  width: 40px; 
+  height: 20px;
+  padding: 8px;
+  border-radius: 12px; 
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white; 
+  color: black;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+.portion-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5); /* lite gul highlight */
 }
 
 /* Todo Card */

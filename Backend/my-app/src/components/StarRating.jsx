@@ -3,6 +3,7 @@ import { postRating } from "../services/api";
 
 export default function RatingStars({ recipeId }) {
   const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,38 +17,26 @@ export default function RatingStars({ recipeId }) {
     }
   };
 
-  // if (submitted) return <p>Tack för ditt betyg!</p>;
-
   return (
-    <div
-      className="recipe-rating"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        minHeight: "4rem",
-      }}
-    >
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <div>
+    <div className="recipe-rating">
+      {error && <p className="rating-error">{error}</p>}
+      <div className="star-container">
         {[1, 2, 3, 4, 5].map((star) => (
           <span
             key={star}
+            className={`star ${
+              star <= (hover || rating) ? "filled" : ""
+            } ${hover && star <= hover ? "hovered" : ""}`}
             onClick={!submitted ? () => handleClick(star) : undefined}
-            style={{
-              cursor: submitted ? "default" : "pointer",
-              fontSize: "2rem",
-              color: star <= rating ? "gold" : "#ccc",
-              transition: "color 0.3s",
-              marginRight: "4px",
-            }}
+            onMouseEnter={() => !submitted && setHover(star)}
+            onMouseLeave={() => !submitted && setHover(null)}
           >
             ★
           </span>
         ))}
       </div>
       {submitted && (
-        <p style={{ marginTop: "0.5rem", color: "white", fontSize: "1.5rem" }}>
+        <p className="rating-thanks">
           Tack för ditt betyg! ({rating} stjärnor)
         </p>
       )}
