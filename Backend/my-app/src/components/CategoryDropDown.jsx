@@ -27,7 +27,7 @@ export default function CategoryDropDown() {
 
   return (
     <div className="category-container">
-      <h1>{category}</h1>
+      <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
       {recipes.length > 0 ? (
         <ul className="category-list">
            {recipes.map((recipe) => (
