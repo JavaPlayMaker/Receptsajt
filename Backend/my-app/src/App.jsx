@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Recipe from "./pages/Recipe";
 import RootLayout from "./layout/RootLayout";
-import CategoryDropDown from "./components/CategoryDropDown";
+import Category from "./pages/Category";
 
 
 
@@ -13,7 +13,7 @@ export function App() {
       <Route path="/" element={<RootLayout />} >
         <Route path="/" element={<Home />} />
         <Route path="/recipe/:id" element={<Recipe />} />
-        <Route path="/category/:category" element={<CategoryDropDown />} />
+        <Route path="/category/:category" element={<Category />} />
       </Route>
     </Routes>
   );
