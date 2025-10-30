@@ -139,8 +139,37 @@ img {
 }
 .ingredients-card li {
   margin-bottom: 6px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-align: left;
+}
+.portion-label {
+  font-size: 1.5rem; 
+  font-weight: 600;   
+  margin-right: 20px; 
+  margin-bottom: 20px;
+}
+
+.portion-input {
+  width: 40px; 
+  height: 20px;
+  padding: 8px;
+  border-radius: 12px; 
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white; 
+  color: black;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+.portion-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5); /* lite gul highlight */
 }
 
 /* Todo Card */
