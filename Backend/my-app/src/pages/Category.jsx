@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import ToDoListNew from "../components/ToDoListNew.jsx";
-
-const Category = () => {
-return (
-<div>
-<h1>Category Page</h1>
-<ToDoListNew />
-</div>
-);
-};
-
-export default Category; 
-=======
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getRecipesByCategory } from "../services/api";
@@ -65,4 +50,3 @@ export default function Category() {
     </div>
   );
 }
->>>>>>> 208ea5834a39d9ed0697ee6067aaa96b487082b0
