@@ -7,17 +7,18 @@ export default function AmountOfPortion({ recipe}) {
 
 return (
     <div>
-        <label>
+        <label className="portion-label">
             Antal portioner:{" "}
             <input
                 type="number"
                 min="1"
             value={portion}
           onChange={(e) => setPortion(e.target.value)}
+          className="portion-input"
         />        
     </label>
 
-<ul>
+<ul className="ingredients-list">
     {recipe.ingredients.map((ing) => (
         <li key={ing._id}>
 {Number(ing.amount * portion).toLocaleString(undefined, { maximumFractionDigits: 2 })} {ing.unit} {ing.name}
