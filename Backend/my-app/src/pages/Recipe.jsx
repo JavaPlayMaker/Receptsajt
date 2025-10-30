@@ -26,11 +26,14 @@ const Recipe = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const scaleIngredientAmount = (amount) => {
-    if (!recipe || !recipe.portions) return amount;
-    const factor = currentPortions / recipe.portions;
-    return (amount * factor).toFixed(2).replace(/\.00$/, "");
-  };
+
+const scaleIngredientAmount = (amount) => {
+  if (!recipe || !recipe.portions) return amount;
+  const scaled = (amount / recipe.portions) 
+    * currentPortions;
+  return scaled;
+}
+
 
   if (loading) return <p>Recept laddar...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -68,28 +71,22 @@ const Recipe = () => {
             ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
           </p>
 
-          {/* Ingredients and to-do list */}
-          <div className="recipe-details">
-            <div className="ingredients-card">
-              <h2>Ingredienser:</h2>
-              <AmountOfPortion
-                recipe={recipe}
-                currentPortions={currentPortions}
-                setCurrentPortions={setCurrentPortions}
-              />
-              <ul>
-                {recipe?.ingredients?.map((ing, i) => (
-                  <li key={i}>
-                    {scaleIngredientAmount(ing.amount)} {ing.unit} {ing.name}
-                  </li>
-                )) || <li>Inga ingredienser tillgängliga.</li>}
-              </ul>
-            </div>
+       {/* Ingredients and to-do list */}
+<div className="recipe-details">
+  <div className="ingredients-card">
+    <h2>Ingredienser:</h2>
+    <AmountOfPortion
+      recipe={recipe}
+      currentPortions={currentPortions}
+      setCurrentPortions={setCurrentPortions}
+    />
+
+     </div>
 
             <ToDoList instructions={recipe.instructions} />
           </div>
 
-          {/* comment section */}
+        {/* comment section */}
           <CommentsSection recipeId={recipe._id} />
         </div>
       ) : (
