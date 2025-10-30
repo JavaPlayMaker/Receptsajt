@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getRecipe } from "../services/api";
 
-export function UseRecipe(id) {
+export function useRecipe(id) {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,4 +16,4 @@ export function UseRecipe(id) {
 
   return { recipe, loading, error };
 }
-export default UseRecipe;
+export default useRecipe;

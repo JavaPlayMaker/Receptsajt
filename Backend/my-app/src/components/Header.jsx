@@ -1,8 +1,6 @@
-import React from 'react';
-// import '../index.css'
-// import './header.css'
-import '../layout/Navbar.css'
-import Navbar from '../layout/Navbar';
+import React from "react";
+import "../layout/Navbar.css";
+import Navbar from "../layout/Navbar";
 
 const Header = () => {
   return (

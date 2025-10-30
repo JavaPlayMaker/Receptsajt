@@ -100,6 +100,12 @@ const Navbar = () => {
           </NavLink>
         </li>
 
+   {/* Added Threat Checklist link */}
+        <li className="button-link">
+          <NavLink to="/threat-checklist">Threat Checklist</NavLink>
+        </li>
+
+
         <li className="button-link dropdown" ref={dropdownRef}>
           <button
             className="dropdown-btn"

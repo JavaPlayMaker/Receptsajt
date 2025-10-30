@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
 import ToDoList from "../components/ToDoList";
-import useRecipe from "../components/useRecipe";
+import useRecipe from "../components/UseRecipe";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
 import CommentsSection from "../components/CommentsSection";
