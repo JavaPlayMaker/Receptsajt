@@ -57,7 +57,6 @@ return (
     <div className="description">
       <Description />
     </div>
-
     <div className="search-bar">
       <SearchBar
         searchQuery={searchQuery}
