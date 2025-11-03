@@ -5,6 +5,7 @@ export default function AmountOfPortion({ recipe}) {
 
     if (!recipe) return <p>Laddar recept...</p>;
 
+  
 return (
     <div>
         <label className="portion-label">
@@ -21,7 +22,7 @@ return (
 <ul className="ingredients-list">
     {recipe.ingredients.map((ing) => (
         <li key={ing._id}>
-            {(ing.amount * portion).toFixed(2)} {ing.unit} {ing.name}
+{Number(ing.amount * portion).toLocaleString(undefined, { maximumFractionDigits: 2 })} {ing.unit} {ing.name}
         </li>
     ))}
 </ul>
