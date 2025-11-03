@@ -21,7 +21,7 @@ const Recipe = () => {
     getRecipe(id)
       .then((data) => {
         setRecipe(data);
-        setCurrentPortions(data.portions || 1);
+         if (data?.portions) setCurrentPortions(data.portions);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
