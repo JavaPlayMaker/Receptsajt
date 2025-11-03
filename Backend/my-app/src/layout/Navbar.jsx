@@ -13,22 +13,25 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-useEffect(() => {
-  const controller = new AbortController();
-  setIsLoading(true);
+  useEffect(() => {
+    const controller = new AbortController();
+    setIsLoading(true);
 
-  getAllCategories({ signal: controller.signal })
-    .then((data) => {
-      setCategories(Array.isArray(data) ? [...data].sort() : []);
-    })
-    .catch((err) => {
-      if (err.name !== 'AbortError') setCategories([]);
-    })
-    .finally(() => setIsLoading(false));
+    getAllCategories({ signal: controller.signal })
+      .then((data) => {
+        setCategories(
+          Array.isArray(data)
+            ? [...data].sort((a, b) => a.name.localeCompare(b.name))
+            : []
+        );
+      })
+      .catch((err) => {
+        if (err.name !== "AbortError") setCategories([]);
+      })
+      .finally(() => setIsLoading(false));
 
-  return () => controller.abort();
-}, []);
-
+    return () => controller.abort();
+  }, []);
 
   // close dropdown when clicking outside
   useEffect(() => {
