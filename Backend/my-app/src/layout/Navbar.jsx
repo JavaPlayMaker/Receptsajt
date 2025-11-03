@@ -19,7 +19,7 @@ const Navbar = () => {
     getAllCategories()
       .then((data) => {
         if (!mounted) return;
-        setCategories(Array.isArray(data) ? data.sort() : []);
+        setCategories(Array.isArray(data) ? data.sort((a,b)=> a.localeCompare(b)) : []);
       })
       .catch(() => setCategories([]))
       .finally(() => setIsLoading(false));
