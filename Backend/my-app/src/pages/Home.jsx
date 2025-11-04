@@ -52,45 +52,45 @@ const Home = () => {
     (r) => !pinnedIds.includes(r._id)
   );
 
-  return (
-    <div className="home-container">
-      <div className="description">
-        <Description />
+return (
+  <div className="home-container">
+    <div className="description">
+      <Description />
+    </div>
+    <div className="search-bar">
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSearch={handleSearch}
+      />
+    </div>
+
+    {/* Favorite recipes */}
+    {pinnedRecipes.length > 0 && (
+      <div className="favorites-section">
+        <h2>Våra favoritrecept:</h2>
+        <ul className="favorites-list">
+          {pinnedRecipes.map((r) => (
+            <li key={r._id}>
+              <Link to={`/recipe/${r._id}`} className="recipe-link">
+                <h3>{r.title}</h3>
+                {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
+                <p>{r.description}</p>
+                <RecipeDifficulty timeInMins={r.timeInMins} />
+                <p>
+                  ⏱ {r.timeInMins} min | 💰 {r.price} SEK
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <hr className="divider" />
       </div>
+    )}
 
-      <div className="search-bar">
-        <SearchBar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          onSearch={handleSearch}
-        />
-      </div>
-
-      {/* Favorite recipies*/}
-      {pinnedRecipes.length > 0 && (
-        <div className="favorites-section">
-          <h2>Våra favoritrecept: </h2>
-          <ul className="favorites-list">
-            {pinnedRecipes.map((r) => (
-              <li key={r._id}>
-                <Link to={`/recipe/${r._id}`} className="recipe-link">
-                  <h3>{r.title}</h3>
-                  {r.imageUrl && <img src={r.imageUrl} alt={r.title} />}
-                  <p>{r.description}</p>
-                  <RecipeDifficulty timeInMins={r.timeInMins} />
-                  <p>
-                    ⏱ {r.timeInMins} min | 💰 {r.price} SEK
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <hr className="divider" />
-        </div>
-      )}
-
-      {/* The rest of the recipies */}
-      {otherRecipes.length > 0 ? (
+    {/* The rest of the recipes */}
+    {otherRecipes.length > 0 ? (
+      <>
         <div className="other-section">
           <h2>Resterande av våra recept:</h2>
           <ul className="other-list">
@@ -108,12 +108,13 @@ const Home = () => {
               </li>
             ))}
           </ul>
-        </div>
-      ) : (
-        <p>Inga fler recept hittades.</p>
-      )}
-    </div>
-  );
+        </div>      
+      </>
+    ) : (
+      <p>Inga fler recept hittades.</p>
+    )}
+  </div>
+);
 };
 
 export default Home;

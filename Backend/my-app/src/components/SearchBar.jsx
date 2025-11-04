@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function SearchBar ({ searchQuery, setSearchQuery, onSearch }) {
 
 const handleKeyDown = (enter) => {
