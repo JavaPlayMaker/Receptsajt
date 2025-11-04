@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../services/api";
+import "./CommentList.css";
 import  "../pages/Recipe.css"; 
 
 export default function CommentList({ recipeId, refreshTrigger }) {
   const [comments, setComments] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(3); // show first 3 comments
+  const [visibleCount, setVisibleCount] = useState(3); 
 
   useEffect(() => {
     async function loadComments() {
@@ -14,11 +15,6 @@ export default function CommentList({ recipeId, refreshTrigger }) {
        // Reverse comments so newest comes first(No good but..)
         const sorted = data.reverse();
 
-       /* // Sort comments so newest comes first
-          //But DB may have no createdAt timestamp
-        const sorted = data.sort(
-          (a, b) => new Date(b.createdAt|| b.savedDate) - new Date(a.createAt)
-        );*/
 
         console.log("Loaded comments:", sorted);
         setComments(sorted);

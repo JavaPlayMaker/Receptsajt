@@ -4,7 +4,7 @@ import { describe, it, expect, vi } from "vitest";
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 
-// Wrapper to manage state like in the real app
+
 function Wrapper({ onSearch }) {
   const [query, setQuery] = useState("");
   return (

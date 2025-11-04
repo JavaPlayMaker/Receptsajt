@@ -8,18 +8,20 @@ body {
 }
 
 .home-container {
-  padding-top: 0;
+  padding-top: 0px;
   padding-bottom: 50px;
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .home-container h1 {
-  margin-top: 20px;
+  margin-top: 0;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -39,17 +41,15 @@ body {
 /* Search Bar */
 .search-bar {
   margin-bottom: 40px;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   max-width: 1200px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: left;
-  padding-left: 100px;
 }
 
 .search-bar input {
   width: 100%;
-  max-width: 1000px;
   height: 50px;
   padding: 0 15px;
   border-radius: 12px;
@@ -57,6 +57,8 @@ body {
   font-size: 1rem;
   background-color: white;
   color: rgb(33, 33, 33);}
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 
 .favorites-list,
 .other-list {
@@ -64,7 +66,8 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   justify-items: center;
-  align-items: stretch; 
+  justify-content: center;
+  align-items: stretch;
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -141,14 +144,14 @@ body {
 }
 
 .favorites-section h2 {
-  margin-bottom: 50px; 
+  margin-bottom: 50px;
   font-size: 2rem;
 }
 
 .divider {
   border: none;
   border-top: 4px solid white;
-  margin: 60px 0 60px 0 ;
+  margin: 60px 0 60px 0;
 }
 
 .other-section h2 {
@@ -194,10 +197,7 @@ body {
 @media (max-width: 1024px) {
   .favorites-list,
   .other-list {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -210,23 +210,45 @@ body {
 
 /* searchbar */
 
-/* middle sixe screens */
-@media (max-width: 1024px) {
-  .search-bar {
-    padding-left: 4%;
-  }
-
+/* Stora skärmar – 3 kort */
+@media (min-width: 1025px) {
   .search-bar input {
-    max-width: 450px;
+    max-width: calc(3 * 300px + 2 * 50px); /* 3 kort + 2 gap */
+  }
+}
+
+/* Mellanstora skärmar – 2 kort */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .search-bar input {
+    max-width: calc(2 * 300px + 50px); /* 2 kort + 1 gap */
     height: 45px;
     font-size: 0.95rem;
   }
 }
 
+/* Mobiler – 1 kort */
+@media (max-width: 768px) {
+  .search-bar input {
+    max-width: 300px; /* 1 kort */
+    height: 42px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra små skärmar */
+@media (max-width: 480px) {
+  .search-bar input {
+    max-width: 260px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
+
 /* mobile */
 @media (max-width: 768px) {
-.home-container {
-    padding-top: 240px;
+  .home-container {
+    justify-content: center;
+    padding-left: 0;
   }
   .search-bar {
     padding-left: 3%;
@@ -236,6 +258,20 @@ body {
     max-width: 350px;
     height: 42px;
     font-size: 0.9rem;
+  }
+}
+
+/* extra small screens */
+@media (max-width: 480px) {
+  .search-bar {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .search-bar input {
+    max-width: 280px;
+    height: 38px;
+    font-size: 0.85rem;
   }
 }
 

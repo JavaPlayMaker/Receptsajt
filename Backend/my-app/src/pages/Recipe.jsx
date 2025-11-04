@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import RatingStars from "../components/StarRating";
-import ToDoListNew from "../components/ToDoListNew";
-import { getRecipe } from "../services/api";
+import ToDoList from "../components/ToDoList";
+import useRecipe from "../components/useRecipe";
 import "./Recipe.css";
 import RecipeDifficulty from "../components/RecipeDifficulty";
 import CommentsSection from "../components/CommentsSection";
-
-
+import AmountOfPortion from "../components/AmountOfPortion";
 
 const Recipe = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState([]);
+  const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    getRecipe(id)
-      .then((data) => setRecipe(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [id]);
+  const [currentPortions, setCurrentPortions] = useState(1);
 
-  if (loading) return <p>Recept laddar...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p>Laddar recept...</p>;
+  if (error) return <p>Ett fel uppstod: {error.message}</p>;
 
   return (
     <div className="recipe-container">
@@ -31,34 +25,49 @@ const Recipe = () => {
         <div className="recipe-card">
           <h1 className="recipe-title">{recipe.title}</h1>
           {recipe.imageUrl && (
-            <img
-              src={recipe.imageUrl}
-              alt={recipe.title}
-              className="recipe-image"
-            />
+            <img src={recipe.imageUrl} alt={recipe.title} className="recipe-image" />
           )}
-          <RatingStars recipeId={recipe._id} /> 
-          <RecipeDifficulty timeInMins={recipe.timeInMins}/>
-          <p>{recipe.description}</p>
-          <p className="recipe-meta">
-            ⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK
-          </p>
 
-     
+          <div className="recipe-rating">
+            <RatingStars recipeId={recipe._id} />
+          </div>
+
+          <div className="recipe-difficulty">
+            <RecipeDifficulty timeInMins={recipe.timeInMins} />
+          </div>
+
+          <p className="recipe-description">{recipe.description}</p>
+          <p className="recipe-meta">⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK</p>
+
           <div className="recipe-details">
             <div className="ingredients-card">
               <h2>Ingredienser:</h2>
-              <ul>
-                {recipe.ingredients.map((ing, i) => (
-                  <li key={i}>
-                    {ing.amount} {ing.unit} {ing.name}
-                  </li>
-                ))}
-              </ul>
+              <AmountOfPortion
+                recipe={recipe}
+                currentPortions={currentPortions}
+                setCurrentPortions={setCurrentPortions}
+              />
             </div>
-            <ToDoListNew instructions={recipe.instructions} />
+            <ToDoList instructions={recipe.instructions} />
           </div>
-          <CommentsSection recipeId={recipe._id}/>
+
+       {/* Ingredients and to-do list */}
+<div className="recipe-details">
+  <div className="ingredients-card">
+    <h2>Ingredienser:</h2>
+    <AmountOfPortion
+      recipe={recipe}
+      currentPortions={currentPortions}
+      setCurrentPortions={setCurrentPortions}
+    />
+
+     </div>
+
+            <ToDoList instructions={recipe.instructions} />
+          </div>
+
+        {/* comment section */}
+          <CommentsSection recipeId={recipe._id} />
         </div>
       ) : (
         <p>Inget recept hittades.</p>

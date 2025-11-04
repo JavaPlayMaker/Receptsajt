@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { postComment } from "../services/api";
-import "../pages/Recipe.css";
+import "./CommentForm.css";
+import "../pages/Recipe.css"; 
 
 export default function CommentForm({ recipeId, onCommentAdded, resetTrigger }) {
   const [form, setForm] = useState({ name: "", comment: "" });

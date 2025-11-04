@@ -1,204 +1,267 @@
-/* --- Recipe layout --- */
 .recipe-container {
+  padding-top: 20px;
   min-height: 100vh;
-  background-color: #0d2d2a;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-}
-
-.recipe-card {
-  max-width: 900px;
   width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .recipe-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .recipe-image {
+  width: 100%;
   max-width: 500px;
-  max-height: 500px;
   border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.recipe-meta {
-  color: #d1d5db;
-  margin-bottom: 16px;
+  margin: 40px auto 30px auto;
+  display: block;
+  object-fit: cover;
 }
 
 .recipe-details {
   display: flex;
-  gap: 100px; /* gap between the cards */
-  margin-top: 24px;
-  flex-wrap: wrap; /* makes a list with the recipes in a list on small screens */
+  gap: 30px;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.recipe-rating {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-/* --- Ingredients card --- */
-.ingredients-card {
-  background: #1a3c39;
+.star-rating {
+  font-size: 3rem;
+  color: #facc15;
+}
+/* --- Rating stars --- */
+.recipe-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 4rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.star {
+  font-size: 2.5rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star.filled {
+  color: #facc15; /* gul */
+}
+
+.star.hovered {
+  transform: scale(1.2); /* liten pop-effekt */
+}
+
+.rating-thanks {
+  margin-top: 0.5rem;
   color: white;
-  border: 1px solid #2e5d59;
-  border-radius: 12px;
-  padding: 10px;
-  width: 200px;
-  height: 340px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.ingredients-card h2 {
-  margin-top: 0;
   font-size: 1.4rem;
-  margin-bottom: 12px;
-  text-align: center;
 }
 
+.rating-error {
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-difficulty {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.recipe-description {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #f2f2f2;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 700px;
+}
+.recipe-meta {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #d1d5db;
+  margin-bottom: 25px;
+}
+/* Cards */
+.ingredients-card,
+.todo-card {
+  background: #1a3c39;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  min-height: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex: 1 1 250px;
+}
+.ingredients-card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
 .ingredients-card ul {
   padding-left: 20px;
   margin: 0;
-  list-style: disc;
 }
-
 .ingredients-card li {
   margin-bottom: 6px;
-  font-size: 1rem;
-  display: block;
+  font-size: 1.5rem;
   text-align: left;
 }
-
-/* --- TodoList card --- */
-.todo-card {
-  background: #1a3c39;
-  color: white;
-  border: 1px solid #2e5d59;
-  border-radius: 12px;
-  padding: 10px;
-  width: 350px;
-  height: 1000px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.portion-label {
+  font-size: 1.5rem; 
+  font-weight: 600;   
+  margin-right: 20px; 
+  margin-bottom: 20px;
 }
 
+.portion-input {
+  width: 40px; 
+  height: 20px;
+  padding: 8px;
+  border-radius: 12px; 
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white; 
+  color: black;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+.portion-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5); /* lite gul highlight */
+}
+
+/* Todo Card */
+.todo-card {
+  background: #1a3c39;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  min-height: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex: 1 1 250px;
+}
 .todo-card h3 {
   text-align: center;
-  margin-top: 0;
   margin-bottom: 12px;
   font-size: 1.4rem;
 }
-
 .todo-card ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 .todo-card li {
   background: #264743;
+  font-size: 1.3rem;
   padding: 10px;
   margin-bottom: 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
 }
-
 .todo-card li:hover {
   background: #2f5b56;
 }
-
 .todo-card p {
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
   margin-top: 16px;
   color: #d1d5db;
 }
 
+/* Comments Section */
+.comments-section {
+  width: 670px;
+  max-width: 900px;
+  margin-top: 60px;
+  padding: 20px;
+  background: #1a3c39;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.comments-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+.comments-section .comment {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #264743;
+  border-radius: 8px;
+}
 
-
+/* Placeholder styling for search bar if used */
 .search-bar input::placeholder {
   color: #1a3c39;
-  opacity: 1; 
+  opacity: 1;
 }
 
-/* --- CommentForm --- */
-
-.comment-table {
-  width: 80%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .recipe-container {
+    padding-top: 240px;
+  }
+  .recipe-details {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ingredients-card,
+  .todo-card {
+    width: 90%;
+    min-height: auto;
+  }
 }
-
-.label-cell {
-  width: 120px;
-  text-align: right;
-  padding: 0.5rem;
-  vertical-align: top;
-}
-
-.input-cell {
-  padding: 0.5rem;
-  width: 100%;
-}
-
-.comment-form input,
-.comment-form textarea {
-  width:100%;
-  padding: 0.4rem;
-  box-sizing: border-box;
-}
-
-.comment-form textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-.error {
-  color: red;
-  margin: 0.25rem 0 0;
-  font-size: 0.9rem;
-}
-/* --- CommentList --- */
-
-.comment-list {
-  max-width: 900px;
-  margin: 1rem auto;
-  padding: 1rem;
-}
-
-.comment-item {
-  border-bottom: 1px solid #ddd;
-  padding: 0.75rem 0;
-}
-
-.comment-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  margin-bottom:0.5rem;
-}
-
-.comment-date {
-  color: #777;
-  font-size: 0.5rem;
-}
-
-.comment-text {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.show-more-btn {
-  margin-top: 10px;
-  background-color: #2d8fdd;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.show-more-btn:hover {
-  background-color: #1a73d9;
+@media (max-width: 480px) {
+  .recipe-container {
+    padding-top: 280px;
+  }
+  .ingredients-card,
+  .todo-card {
+    width: 95%;
+  }
+  .comments-section {
+    width: 95%;
+  }
 }
