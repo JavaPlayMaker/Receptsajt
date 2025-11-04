@@ -10,68 +10,49 @@ import AmountOfPortion from "../components/AmountOfPortion";
 
 const Recipe = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { recipe, loading, error } = useRecipe(id);
 
   const [currentPortions, setCurrentPortions] = useState(1);
 
   if (loading) return <p>Laddar recept...</p>;
   if (error) return <p>Ett fel uppstod: {error.message}</p>;
+  if (!recipe) return <p>Inget recept hittades.</p>;
 
   return (
     <div className="recipe-container">
-      {recipe ? (
-        <div className="recipe-card">
-          <h1 className="recipe-title">{recipe.title}</h1>
-          {recipe.imageUrl && (
-            <img src={recipe.imageUrl} alt={recipe.title} className="recipe-image" />
-          )}
+      <div className="recipe-card">
+        <h1 className="recipe-title">{recipe.title}</h1>
+        {recipe.imageUrl && (
+          <img src={recipe.imageUrl} alt={recipe.title} className="recipe-image" />
+        )}
 
-          <div className="recipe-rating">
-            <RatingStars recipeId={recipe._id} />
-          </div>
-
-          <div className="recipe-difficulty">
-            <RecipeDifficulty timeInMins={recipe.timeInMins} />
-          </div>
-
-          <p className="recipe-description">{recipe.description}</p>
-          <p className="recipe-meta">⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK</p>
-
-          <div className="recipe-details">
-            <div className="ingredients-card">
-              <h2>Ingredienser:</h2>
-              <AmountOfPortion
-                recipe={recipe}
-                currentPortions={currentPortions}
-                setCurrentPortions={setCurrentPortions}
-              />
-            </div>
-            <ToDoList instructions={recipe.instructions} />
-          </div>
-
-       {/* Ingredients and to-do list */}
-<div className="recipe-details">
-  <div className="ingredients-card">
-    <h2>Ingredienser:</h2>
-    <AmountOfPortion
-      recipe={recipe}
-      currentPortions={currentPortions}
-      setCurrentPortions={setCurrentPortions}
-    />
-
-     </div>
-
-            <ToDoList instructions={recipe.instructions} />
-          </div>
-
-        {/* comment section */}
-          <CommentsSection recipeId={recipe._id} />
+        <div className="recipe-rating">
+          <RatingStars recipeId={recipe._id} />
         </div>
-      ) : (
-        <p>Inget recept hittades.</p>
-      )}
+
+        <div className="recipe-difficulty">
+          <RecipeDifficulty timeInMins={recipe.timeInMins} />
+        </div>
+
+        <p className="recipe-description">{recipe.description}</p>
+        <p className="recipe-meta">⏱ {recipe.timeInMins} min | 💰 {recipe.price} SEK</p>
+
+        {/* 🟢 EN instans av ingredienser och instruktioner */}
+        <div className="recipe-details">
+          <div className="ingredients-card">
+            <h2>Ingredienser:</h2>
+            <AmountOfPortion
+              recipe={recipe}
+              currentPortions={currentPortions}
+              setCurrentPortions={setCurrentPortions}
+            />
+          </div>
+
+          <ToDoList instructions={recipe.instructions} />
+        </div>
+
+        <CommentsSection recipeId={recipe._id} />
+      </div>
     </div>
   );
 };
