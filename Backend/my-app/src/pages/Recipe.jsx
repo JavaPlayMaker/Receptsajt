@@ -10,14 +10,10 @@ import AmountOfPortion from "../components/AmountOfPortion";
 
 const Recipe = () => {
   const { id } = useParams();
-<<<<<<< HEAD
-  const { recipe, loading, error } = useRecipe(id);
-=======
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
->>>>>>> main
   const [currentPortions, setCurrentPortions] = useState(1);
 
   if (loading) return <p>Laddar recept...</p>;
@@ -55,8 +51,6 @@ const Recipe = () => {
             <ToDoList instructions={recipe.instructions} />
           </div>
 
-<<<<<<< HEAD
-=======
        {/* Ingredients and to-do list */}
 <div className="recipe-details">
   <div className="ingredients-card">
@@ -73,7 +67,6 @@ const Recipe = () => {
           </div>
 
         {/* comment section */}
->>>>>>> main
           <CommentsSection recipeId={recipe._id} />
         </div>
       ) : (

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
-import ToDoListNew from "../components/ToDoListNew";
+import ToDoListNew from "../components/ToDoList";
 
 describe("ToDoListNew", () => {
   const instructions = [
