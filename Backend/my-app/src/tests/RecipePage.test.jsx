@@ -72,6 +72,7 @@ describe("Recipe page", () => {
     expect(await screen.findByText("Inget recept hittades.")).toBeInTheDocument();
   });
 
+
   // Test 4 – Successful render
   it("renders recipe data correctly when fetch succeeds", async () => {
     // Mock a sample recipe object

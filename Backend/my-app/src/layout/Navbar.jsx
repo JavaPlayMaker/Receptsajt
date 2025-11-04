@@ -67,7 +67,7 @@ useEffect(() => {
           const data = await getRecipesByCategory(lbl.toLowerCase());
           return { lbl, count: Array.isArray(data) ? data.length : 0 };
         } catch (err) {
-          return { lbl, count: 0 };
+          return { lbl, count: 0 ,err};
         }
       })
     )
