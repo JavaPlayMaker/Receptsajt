@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
-import ToDoListNew from "../components/ToDoListNew";
+import ToDoListNew from "../components/ToDoList";
 
-describe("ToDoListNew", () => {
+describe("ToDoList", () => {
   const instructions = [
     "Koka sushiris",
     "Blanda risvinäger, socker och salt i riset",
