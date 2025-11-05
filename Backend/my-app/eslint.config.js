@@ -26,6 +26,18 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+   // ✅ Backend (Node) files
+  {
+    files: ['server/**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node, // <-- this adds process, __dirname, etc.
+      },
+    },
+  },
+
   {
     // ✅ Add this block for test files
     files: ['**/*.{test,spec}.{js,jsx}'],

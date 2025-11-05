@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Recipe page > matches snapshot when recipe renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="recipe-container"
+  >
+    <div
+      class="recipe-card"
+    >
+      <h1
+        class="recipe-title"
+      >
+        Lasagne
+      </h1>
+      <img
+        alt="Lasagne"
+        class="recipe-image"
+        src="lasagne.jpg"
+      />
+      <div
+        class="recipe-rating"
+      >
+        <div
+          data-testid="rating-stars"
+        />
+      </div>
+      <div
+        class="recipe-difficulty"
+      >
+        <div
+          data-testid="recipe-difficulty"
+        />
+      </div>
+      <p
+        class="recipe-description"
+      >
+        Krämig och god
+      </p>
+      <p
+        class="recipe-meta"
+      >
+        ⏱ 45 min | 💰 80 SEK
+      </p>
+      <div
+        class="recipe-details"
+      >
+        <div
+          class="ingredients-card"
+        >
+          <h2>
+            Ingredienser:
+          </h2>
+          <div
+            data-testid="amount-of-portion"
+          />
+        </div>
+        <div
+          data-testid="todo-list"
+        />
+      </div>
+      <div
+        data-testid="comments-section"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

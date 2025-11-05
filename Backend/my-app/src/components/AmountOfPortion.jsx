@@ -5,6 +5,7 @@ export default function AmountOfPortion({ recipe}) {
 
     if (!recipe) return <p>Laddar recept...</p>;
 
+  
 return (
     <div>
         <label className="portion-label">
