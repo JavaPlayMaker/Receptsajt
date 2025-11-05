@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { getAllCategories, getRecipesByCategory } from "../services/api";
+import CategoryDropdown from "./CategoryDropdown";
 
 const getCategoryLabel = (catObj, idx) => {
   if (typeof catObj === "string") return catObj;
@@ -44,7 +45,11 @@ const Navbar = () => {
   // 🔹 Stäng dropdown när man klickar utanför
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (isOpen && dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if (
+        isOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
         setIsOpen(false);
       }
     };
@@ -78,10 +83,13 @@ const Navbar = () => {
 
         if (mounted) {
           setCounts((prev) =>
-            results.reduce((next, { lbl, count }) => {
-              next[lbl] = count;
-              return next;
-            }, { ...prev })
+            results.reduce(
+              (next, { lbl, count }) => {
+                next[lbl] = count;
+                return next;
+              },
+              { ...prev }
+            )
           );
         }
       } finally {
@@ -94,39 +102,6 @@ const Navbar = () => {
       mounted = false;
     };
   }, [isOpen, categories, counts]);
-
-  // 🔹 Hjälpfunktion för dropdowninnehåll
-  const renderDropdownContent = () => {
-    if (isLoading) {
-      return (
-        <li className="dropdown-item">
-          <div className="spinner" aria-hidden="true"></div>
-        </li>
-      );
-    }
-
-    if (categories.length === 0) {
-      return <li className="dropdown-item">Inga kategorier</li>;
-    }
-
-    return categories.map((catObj, idx) => {
-      const label = getCategoryLabel(catObj, idx);
-      const path = encodeURIComponent(String(label).toLowerCase());
-      const displayCount = counts[label];
-      const isActive = location.pathname === `/category/${path}`;
-
-      return (
-        <li key={label + idx} className={`dropdown-item ${isActive ? "active" : ""}`} role="none">
-          <Link role="menuitem" to={`/category/${path}`} onClick={() => setIsOpen(false)}>
-            {label}
-            <span className="cat-count">
-              {countsLoading && displayCount === undefined ? "…" : ` (${displayCount ?? 0})`}
-            </span>
-          </Link>
-        </li>
-      );
-    });
-  };
 
   // 🔹 Render-komponent
   return (
@@ -143,20 +118,16 @@ const Navbar = () => {
         </li>
 
         <li className="button-link dropdown" ref={dropdownRef}>
-          <button
-            className="dropdown-btn"
-            aria-expanded={isOpen}
-            aria-haspopup="menu"
-            onClick={() => setIsOpen((s) => !s)}
-          >
-            Kategorier ▾
-          </button>
-
-          {isOpen && (
-            <ul className="dropdown-menu" role="menu">
-              {renderDropdownContent()}
-            </ul>
-          )}
+          <CategoryDropdown
+            isOpen={isOpen}
+            onToggle={() => setIsOpen((s) => !s)}
+            categories={categories}
+            isLoading={isLoading}
+            counts={counts}
+            countsLoading={countsLoading}
+            onSelect={() => setIsOpen(false)}
+            activePath={location.pathname}
+          />
         </li>
       </ul>
     </div>
