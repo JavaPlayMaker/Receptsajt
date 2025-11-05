@@ -4,6 +4,7 @@ export default defineConfig({
   testDir: './e2e',   // 👈 only run tests in e2e folder
   timeout: 30 * 1000,
   use: {
+    
     headless: true,
     css: false,
   },
